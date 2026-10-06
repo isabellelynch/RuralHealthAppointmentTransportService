@@ -12,11 +12,11 @@
 - Passengers / Residents
 - Family Member (when they act as the contact for a passenger)
 
-### Secondary Actors
+### Supporting Actors
 
 - Healthcare Provider / Clinic (they change appointments, but the scenario doesn't show them using the system, so mark this as an assumption)
 
-### Stakeholders who aren't actors
+### Offstage Stakeholders
 - South Kerry Community Travel Network (the organisation itself)
 - Rural Communities
 - Companions
