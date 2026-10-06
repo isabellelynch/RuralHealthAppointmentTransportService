@@ -2,22 +2,28 @@
 
 ## Actors / Stakeholders
 
-- South Kerry Community Travel Network
-- Rural Communities
+### Primary Actors
+
 - Coordinator
 - Office Staff
 - Volunteer Drivers
-- Employed Drivers
-- Referrers / Referring Organisations
+- Employed Drivers (accessible-vehicle drivers)
+- Referrers / Referring Organisations (includes local support organisations)
 - Passengers / Residents
-- Family Member
+- Family Member (when they act as the contact for a passenger)
+
+### Secondary Actors
+
+- Healthcare Provider / Clinic (they change appointments, but the scenario doesn't show them using the system, so mark this as an assumption)
+
+### Stakeholders who aren't actors
+- South Kerry Community Travel Network (the organisation itself)
+- Rural Communities
 - Companions
 - Regular Passenger
 - New Passenger
-- Healthcare Provider
-- Clinic
-- Funders
-- Data Protection Regulator
+- Funders (they receive summary reports)
+- Data Protection Regulator (implied by the confidentiality concerns, not named in the scenario, so label it as an assumption)
 
 ## Candidate Use Cases (Verbs)
 
