@@ -1,128 +1,99 @@
-## Initial Verb and Noun List
-South Kerry Community Travel Network
-Not-for-profit organisation
-Volunteers trained
-Residents/Passengers
-Travel
-Rural communities
-Healthcare appointments
-Emergency transport
-Journeys 
-Volunteer drivers
-Own cars
-Accessible vehicles 
-Employed drivers
-Requests
-Telephone
-Referral email
-Local support organisations
-Staff
-Shared calendar 
-Spreadsheet
-Paper driver sheets
-Coordinate journeys
-Demand
-Eligibility 
-Passenger needs
-Driver assignment
-Changes
-Confidential information 
-Appointment location
-Appointment time
-Estimated duration
-Collection address 
-Travel needs
-Referrers 
-Appointment date
-Finishing time
-Family member
-Contact
-Calls
-Allocation
-Eligibility discussion
-Reviewed
-Circumstances change
-Records
-Wheelchair space
-Assistance
-Walking aid
-Companion
-Clinical diagnosis 
-Emails
-Notes
-Shared journeys
-Vehicle capacity
-Availability
-Decline
-Authorised drivers
-Unsuccessful contacts
-Recorded 
-Confirm
-Disagree
-Offered 
-Confirmation
-Collection window
-Arrangements 
-Travel costs
-Contribution
-Overrun
-Directions
-Practical assistance information
-Personal details
-Collection
-Arrival
-Return
-Ready
-Address
-Wait
-Coordinator
-Leave
-Circumstances
-Maximum wait time
-Illness
-Severe weather
-Vehicle problems
-Replacement
-Regular passenger
-New passenger
-Data Protection Regulator (assumed)
-Healthcare provider
-Views
-Unallocated requests
-Provisional journeys
-Confirmed journyes
-Accessible vehicle demand
-Driver availability
-Changes
-Incomplete journey records
-Summary reports
-Funders
-Office staff
-Eligibility evidence
-Eligibility review period
-Companion seating
-Ability to share a journey
-Outward journey
-Return journey
-Journey completion record
-Driver preferences
-Driver contact attempts
-Referring organisations
-Cancellations
-Cancellation reasons
-Late cancellation
-Cancellation responsibility
-Allocate/assign
-Plan shared journey
-Change appointment
-Cancel journey
-Record cancellation reason
-Notify passenger and referrer
-Mobile coverage
-Printed journey sheets
-Emergency dispatch
-Direct access
-Clinical decision making
-Clinic
+# South Kerry Community Travel Network – Analysis Notes
 
+## Actors / Stakeholders
 
+- South Kerry Community Travel Network
+- Rural Communities
+- Coordinator
+- Office Staff
+- Volunteer Drivers
+- Employed Drivers
+- Referrers / Referring Organisations
+- Passengers / Residents
+- Family Member
+- Companions
+- Regular Passenger
+- New Passenger
+- Healthcare Provider
+- Clinic
+- Funders
+- Data Protection Regulator
+
+## Candidate Use Cases (Verbs)
+
+- Submit / Receive Request
+- Assess Eligibility
+- Review Eligibility
+- Record Travel Needs
+- Allocate / Assign Driver and Vehicle
+- Provisionally Assign Journey
+- Offer Journey to Driver
+- Accept / Decline Journey
+- Plan Shared Journey
+- Confirm Journey
+- Record Collection, Arrival and Return
+- Record Passenger Not Ready / Not at Address / Not Travelling
+- Wait / Contact Coordinator / Leave
+- Change Appointment or Request
+- Cancel Journey
+- Record Cancellation Reason
+- Find Replacement Driver
+- Notify Passenger and Referrer When Transport Fails
+- View Coordinator Dashboards
+- Generate Summary Reports
+- Print Journey Sheets
+
+## Entities and Data the System Holds
+
+### Requests and Passengers
+
+- Requests, eligibility, eligibility evidence, eligibility review period
+- Personal details, address, collection address, contact
+- Travel needs: wheelchair space, assistance, walking aid, companion, companion seating, ability to share a journey
+- Clinical diagnosis (not stored, marked as restricted)
+
+### Appointments
+
+- Appointment date, appointment time, appointment location
+- Estimated duration, finishing time
+
+### Journeys
+
+- Journeys or shared journeys
+- Provisional and confirmed journeys
+- Outward journey and return journey
+- Collection window, collection, arrival, return
+- Journey completion record
+- Directions, practical assistance information
+- Travel costs / contributions
+
+### Drivers and Vehicles
+
+- Driver availability
+- Own cars, accessible vehicles
+- Vehicle capacity
+- Authorised drivers
+- Driver preferences
+- Driver contact attempts
+
+### Changes and Cancellations
+
+- Changes
+- Cancellations, cancellation reasons, late cancellations
+- Cancellation responsibility
+- Reasons a driver is unavailable
+
+### Outputs and Views
+
+- Coordinator views: unallocated requests, provisional journeys, confirmed journeys, accessible-vehicle demand, driver availability, changes, incomplete journey records
+- Summary reports (anonymous)
+- Confirmation
+- Printed journey sheets
+
+### Current Tools Being Replaced
+
+- Telephone requests
+- Referral emails
+- Shared calendar
+- Spreadsheet
+- Paper driver sheets (assumed)
