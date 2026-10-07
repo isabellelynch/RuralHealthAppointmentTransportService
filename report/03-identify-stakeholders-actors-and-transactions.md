@@ -103,3 +103,24 @@
 - Shared calendar
 - Spreadsheet
 - Paper driver sheets (assumed)
+
+
+  ## Stakeholder Analysis
+
+*(A) = assumption, not directly stated in the scenario and may require further clarification.*
+
+| Stakeholder | Goals | Concerns | Influence | Expected Interaction |
+|---|---|---|---|---|
+| **South Kerry Community Travel Network** | Deliver reliable, planned transport to eligible residents. Cope with rising demand. Meet funder requirements. | Staff workload, protecting confidential information, keeping volunteers available, unresolved policies (eligibility reviews, waiting time, provisional assignments). | High – owns the service, sets policy and approves the system's scope. | Indirectly sets the rules the system enforces and receives reports. |
+| **Rural Communities** | Access to planned healthcare appointments when there is no reasonable transport alternative. | Availability and fairness of the service. | Low – represented through individual passengers. | None directly. |
+| **Coordinator** | Reliable views of unallocated requests, provisional and confirmed journeys, accessible vehicle demand, driver availability, changes and incomplete records. Efficient allocation. | Uncertain finishing times, provisional assignments, late changes and incomplete journey records. | High – main decision maker for allocation and a key user. | Daily primary user. Allocates drivers and vehicles, manages changes and failures and receives driver calls. |
+| **Office Staff** | Capture complete requests, check eligibility and secure drivers with fewer repeated calls. | Unsuccessful driver contacts are not recorded, incomplete requests needing several calls and confidentiality. | High – day-to-day users whose workflow the system must support. | Daily user, enters requests and travel needs, contacts drivers, confirms journeys, records changes and cancellations. |
+| **Volunteer Driver** | Enough information to help passengers safely, journeys that fit their availability and preferences. | Do not need medical history, uneven mobile coverage, unclear waiting rules, freedom to decline. | Medium – service depends on them and they can decline journeys. | Receive journey offers, accept or decline. Receive printed or mobile journey sheets. Record collection arrival and return. Contact the coordinator. |
+| **Employed Drivers** | Know wheelchair space and companion seating before the vehicle is assigned. | Accessible vehicles already committed to another passenger. Only authorised drivers may operate it. | Medium – only two accessible vehicles, so a scarce resource. | Assigned accessible vehicle journeys, receive journey details, record completion. |
+| **Referrers / Referring Organisations** | Submit requests easily and update them when appointments change. | Requests change after sending, being told promptly if transport fails. | Medium – a main source of requests. | Submit requests, receive confirmation or failure notices. Whether they get direct system access is unclear (A). |
+| **Passengers / Residents (Regular / New)** | Reach appointments on time and get home safely. | Not knowing whether the driver is waiting or coming back later, collection times, travel cost contribution, privacy, not being penalised for provider changes. | Medium – the service exists for them, but they have little say in its design. | Mostly through staff by phone, receive confirmation, request changes or cancel, are collected and returned. |
+| **Family Members** | Arrange transport on a passenger's behalf. | Being kept informed, accurate contact details. | Low | Acts as a contact, may receive confirmations, possibly contacted when the passenger cannot be reached (unresolved). |
+| **Companions** | Travel with a passenger. | A seat being available. | Low | Recorded as a travel need, no direct interaction. |
+| **Healthcare Provider / Clinic** | Patients attend their appointments (A). | Not directly stated. | Medium (indirect) – their appointment changes and overruns drive changes and cancellations. | None, changes reach the service through passengers or referrers. Direct access to healthcare records is out of scope. |
+| **Funders** | Evidence that the service is used effectively. | Accurate reports that do not identify passengers unnecessarily. | High – control funding. | Receive anonymised summary reports. No direct system use. |
+| **Data Protection Officer (A)** | Compliance with data protection law (A). | Unnecessary storage of clinical diagnoses, over-sharing passenger details with drivers, identifiable reports. | High (legal) – though not officially named in the scenario. | None, acts as a constraint on the system's design. |
