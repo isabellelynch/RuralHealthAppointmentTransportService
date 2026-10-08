@@ -19,6 +19,6 @@
 | Q15 | How are passengers currently confirmed (phone, text, letter), and what collection window is acceptable? | Passengers, office staff | Assumption | FR09, A10 | Defines confirmation content and channel. |
 | Q16 | Who records driver unavailability: the driver or office staff? | Drivers, office staff | Assumption | FR12, A07 | Affects how quickly affected journeys are found. |
 | Q17 | Should the system contact drivers (e.g. by text), or will staff continue to phone? | Office staff, coordinator | Assumption | FR07, A09 | Affects scope of the first release. |
-| Q18 | How are drivers authorised for accessible vehicles, and does authorisation expire? | Coordinator, employed drivers | Assumption | FR06, A04 | Defines the authorisation check. |
+| <a id="Q18"></a>Q18 | How are drivers authorised for accessible vehicles, and does authorisation expire? | Coordinator, employed drivers | Assumption | FR06, A04 | Defines the authorisation check. |
 | Q19 | Is a specific accessibility standard required by funders or law? | Service manager, funders | Assumption | NFR06, A16 | Confirms the accessibility target. |
 | Q20 | How long should passenger and journey records be kept? | Service manager, data protection lead | Assumption | NFR01, NFR05, A17 | Required for GDPR compliance. |
