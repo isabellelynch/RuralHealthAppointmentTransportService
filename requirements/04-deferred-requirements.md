@@ -1,6 +1,6 @@
 # Deferred Requirements
 
-These requirements were identified from the scenario but are not in the first-release catalogue, which is limited to 12 functional requirements. They are kept here for traceability and future releases.
+These requirements were identified from the scenario but are not included due to project scope and CA1 brief stating to include 8-12 functional requirements and at least 4 non-functional requirements. They are kept here for traceability, future releases and evidence of work put in and time spent.
 
 ## Deferred functional requirements
 
