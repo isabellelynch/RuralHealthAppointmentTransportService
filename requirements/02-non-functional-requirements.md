@@ -1,6 +1,7 @@
 # Non-Functional Requirements
 
-A non-functional requirement describes a system quality, operating condition or constraint. It should normally include a measurable target or a condition that can be verified. Words such as fast, secure, reliable and user-friendly are starting points for discussion, not complete requirements([Shields, 2026](../references/references.md#lectures)).
+"A non-functional requirement describes a system quality, operating condition or constraint. It should normally include a measurable target or a condition that can be verified. Words such as fast, secure, reliable and user-friendly are starting points for discussion, not complete requirements." ([Shields, 2026](../references/references.md#lectures))
+
 
 | ID | Requirement | Priority | Source / Rationale |
 |-------|-------------|----------|--------------------|

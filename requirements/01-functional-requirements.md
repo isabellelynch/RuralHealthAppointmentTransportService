@@ -1,6 +1,7 @@
 # Functional Requirements
 
-A functional requirement describes an observable service, capability, calculation, validation or response that the proposed system must provide. A strong functional requirement is atomic, clear, solution-neutral and verifiable. [@lectures]
+"A functional requirement describes an observable service, capability, calculation, validation or response that the proposed system must provide. A strong functional requirement is atomic, clear, solution-neutral and verifiable." ([Shields, 2026](../references/references.md#lectures))
+
 
 | ID | Requirement | Priority | Source / Rationale |
 |------|-------------|----------|--------------------|
