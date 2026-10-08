@@ -1,3 +1,7 @@
+# Functional Requirements
+
+A functional requirement describes an observable service, capability, calculation, validation or response that the proposed system must provide. A strong functional requirement is atomic, clear, solution-neutral and verifiable. [@lectures]
+
 | ID | Requirement | Priority | Source / Rationale |
 |------|-------------|----------|--------------------|
 | FR01 | The system shall record a transport request with the passenger, appointment location, appointment date and time, estimated duration or finishing time, collection address and travel needs. | Must | *Transport requests and eligibility*: lists what a request normally includes. Core data for every journey. |

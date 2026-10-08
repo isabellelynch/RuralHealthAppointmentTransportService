@@ -1,3 +1,7 @@
+# Non-Functional Requirements
+
+A non-functional requirement describes a system quality, operating condition or constraint. It should normally include a measurable target or a condition that can be verified. Words such as fast, secure, reliable and user-friendly are starting points for discussion, not complete requirements.[@lectures]
+
 | ID | Requirement | Priority | Source / Rationale |
 |-------|-------------|----------|--------------------|
 | NFR01 | Drivers shall only see the information needed to complete their assigned journey. Passenger details shall not be visible to drivers for journeys they have not accepted. | Must | *Journey confirmation and completion*: drivers "should not receive unrelated personal details". *Changes, cancellations and disruption*: avoid "disclosing passenger information more widely than necessary". Volunteer driver: "I do not need a medical history." |
