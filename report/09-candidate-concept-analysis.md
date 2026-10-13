@@ -1,146 +1,153 @@
 ## Candidate noun list
 
+### Identify if they are 
+- Conceptual Class                 C
+- Attribute/Value                  V
+- Actor                            A 
+- Operation/Event                  E
+- Out of Scope/implementation      O
+
 ### Organisation and current service
-- South Kerry Community Travel Network
-- network
-- not-for-profit service
-- residents
-- rural communities
-- planned healthcare appointment
-- emergency transport
-- journeys
-- trained volunteer drivers
-- own cars
-- accessible vehicles
-- employed drivers
-- request
-- telephone
-- referral email
-- local support organisation
-- staff
-- shared calendar
-- spreadsheet
-- paper driver sheet
-- demand 
-- eligibility
-- passenger needs
-- driver assignment
-- changes 
-- confidential information
+- South Kerry Community Travel Network O
+- network O
+- not-for-profit service O
+- residents C
+- rural communities O
+- planned healthcare appointment C
+- emergency transport O
+- journeys C
+- trained volunteer drivers C + A
+- own cars C
+- accessible vehicles C
+- employed drivers C + A
+- request C
+- telephone O
+- referral email O
+- local support organisation A
+- staff A
+- shared calendar O
+- spreadsheet O
+- paper driver sheet O
+- demand  O
+- eligibility O
+- passenger needs V
+- driver assignment E
+- changes C
+- confidential information O
 
 ### Transport requests and eligibility
-- passenger
-- appointment location
-- appointment time
-- appointment date 
-- estimated duration
-- collection address
-- travel needs
-- referrer
-- expected finishing time
-- family member
-- contact
-- several calls
-- allocation 
-- transport alternative 
-- regular passengers 
-- new passengers 
-- eligibility discussion
-- circumstances 
-- practical travel needs 
-- wheelchair space
-- assistance entering a vehicle
-- room for a walking aid
-- walking aid 
-- companion
-- clinical diagnosis
-- emails 
-- notes
+- passenger C
+- appointment location V
+- appointment time V
+- appointment date  V
+- estimated duration V
+- collection address V
+- travel needs V
+- referrer A
+- expected finishing time V
+- family member C
+- contact C
+- several calls E
+- allocation E
+- transport alternative O
+- regular passengers C
+- new passengers C
+- eligibility discussion E O
+- circumstances  O
+- practical travel needs V
+- wheelchair space V
+- assistance entering a vehicle V
+- room for a walking aid V
+- walking aid V
+- companion V
+- clinical diagnosis O
+- emails O
+- notes V
 
 ### Planning and driver allocation
-- suitable driver 
-- unnecessary travel 
-- compatible passengers 
-- nearby locations
-- shared journeys
-- appointment times
-- vehicle capacity
-- acceptability of sharing 
-- general availability 
-- individual journeys 
-- familiar areas 
-- dark (driving after dark) 
-- authorised drivers 
-- another passenger 
-- unsuccessful contacts 
-- provisional assignment 
-- confirmation 
+- suitable driver O
+- unnecessary travel O
+- compatible passengers  O
+- nearby locations O
+- shared journeys O
+- appointment times V
+- vehicle capacity V
+- acceptability of sharing V
+- general availability  V
+- individual journeys C
+- familiar areas V
+- dark (driving after dark) V
+- authorised drivers V
+- another passenger O
+- unsuccessful contacts C
+- provisional assignment V
+- confirmation E
 
 ### Journey confirmation and completion
-- collection window 
-- driver or service contact 
-- expected arrangements 
-- contribution towards travel costs 
-- exact collection time 
-- previous appointments 
-- directions 
-- practical assistance information 
-- unrelated personal details 
-- collection 
-- arrival 
-- return completion 
-- agreed address 
-- coordinator 
-- maximum waiting time 
-- finishing times 
-- return journey 
-- different driver 
-- outward and return arrangements 
-- plans 
+- collection window V
+- driver or service contact V
+- expected arrangements V
+- contribution towards travel costs V
+- exact collection time O
+- previous appointments O
+- directions O
+- practical assistance information V
+- unrelated personal details O
+- collection V + E
+- arrival V + E
+- return completion V + E
+- agreed address V
+- coordinator A
+- maximum waiting time O
+- finishing times V
+- return journey C
+- different driver V
+- outward and return arrangements C
+- plans O
 
 ### Changes, cancellations and disruption
-- short notice 
-- cancellation 
-- different collection address 
-- illness 
-- vehicle problems 
-- severe weather 
-- replacement (driver) 
-- passenger information 
-- suitable transport 
-- late cancellations 
-- driver availability 
-- healthcare provider 
-- cancellation reasons 
+- short notice V
+- cancellation C
+- different collection address E
+- illness V
+- vehicle problems V
+- severe weather V
+- replacement (driver) E + O
+- passenger information C
+- suitable transport O
+- late cancellations V
+- driver availability C
+- healthcare provider V
+- cancellation reasons V
 
 ### Information and organisational context
-- views 
-- unallocated requests 
-- provisional journeys 
-- confirmed journeys 
-- accessible-vehicle demand 
-- incomplete journey records 
-- summary reports 
-- funders 
-- office staff 
-- referring organisations 
-- mobile coverage 
-- printed journey sheets 
-- first release 
-- emergency dispatch 
-- healthcare records 
-- clinical decision-making 
+- views O
+- unallocated requests V
+- provisional journeys V
+- confirmed journeys V
+- accessible-vehicle demand O
+- incomplete journey records V
+- summary reports E + O
+- funders O
+- office staff A
+- referring organisations A
+- mobile coverage O
+- printed journey sheets O
+- first release O
+- emergency dispatch O
+- healthcare records O
+- clinical decision-making O
 
 ### Stakeholder evidence
-- medical history 
-- clinic 
-- spreadsheet entry ("the person who finally accepted") 
+- medical history O
+- clinic V
+- spreadsheet entry ("the person who finally accepted") O
 
 ### Unresolved matters
-- eligibility evidence 
-- review period 
-- practical needs (shared with driver) 
-- restricted information 
-- outward stage 
-- return stage 
-- cancellation responsibility 
+- eligibility evidence O
+- review period O
+- practical needs (shared with driver) V
+- restricted information O
+- outward stage C
+- return stage C
+- cancellation responsibility V
