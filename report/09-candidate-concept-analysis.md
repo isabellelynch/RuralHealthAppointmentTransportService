@@ -1,141 +1,69 @@
-Key: X = classification. A candidate may have two ticks where it plays two roles, such as Driver, which is both a stored record and an actor.
+# Candidate Concept Analysis
 
-| Candidate | Conceptual class | Attribute / value | Actor | Operation / event | Out of scope / implementation | Reason |
-|---|:-:|:-:|:-:|:-:|:-:|---|
-| **Organisation and current service** | | | | | | |
-| South Kerry Community Travel Network | | | | | X | The organisation that owns the system. There is only one, so it is the system's context rather than a class. |
-| network | | | | | X | Synonym of South Kerry Community Travel Network. |
-| not-for-profit service | | | | | X | Describes the organisation; no data to record. |
-| residents |X| | | | | Synonym of **Passenger**, which is used throughout. |
-| rural communities | | | | | X | Context; the system records individual passengers, not communities. |
-| planned healthcare appointment | X | | | | | **Appointment**: has a location, date, time and estimated finishing time, and can be changed by the provider independently of the journey. |
-| emergency transport | | | | | X | Out of scope ([BR01](06-rules-and-uncertainty-register.md#BR01), [C01](06-rules-and-uncertainty-register.md#C01)). |
-| journeys | X | | | | | **Journey**: the trip for one request, made up of an outward and a return stage ([FR08](../requirements/01-functional-requirements.md#FR08)). |
-| trained volunteer drivers | X | | X | | | **Volunteer driver**: a subtype of Driver. Stored record ([FR06](../requirements/01-functional-requirements.md#FR06)) and actor ([UC06](07-use-case-model.md#UC06)). Training is not recorded. |
-| own cars | X | | | | | **Own car**: a subtype of Vehicle supplied by a volunteer. |
-| accessible vehicles | X | | | | | **Accessible vehicle**: a subtype of Vehicle that requires an authorised driver ([FR06](../requirements/01-functional-requirements.md#FR06)). |
-| employed drivers | X | | X | | | **Employed driver**: a subtype of Driver. Stored record and actor. |
-| request | X | | | | | **Transport request**: created, amended and allocated, with its own lifecycle ([FR01](../requirements/01-functional-requirements.md#FR01)–[FR03](../requirements/01-functional-requirements.md#FR03)). |
-| telephone | | | | | X | A channel by which requests arrive; recording the channel is deferred ([DFR01](../requirements/03-deferred-requirements.md#DFR01)). |
-| referral email | | | | | X | A channel; emails are not stored ([A19](05-assumptions.md#A19)). |
-| local support organisation | | | X | | | A kind of referrer (offstage actor). |
-| staff | | | X | | | Generic term; split into Office staff and Coordinator. |
-| shared calendar | | | | | X | Current tool being replaced. |
-| spreadsheet | | | | | X | Current tool being replaced. |
-| paper driver sheet | | | | | X | Current tool; the new printed journey sheet is deferred ([DFR11](../requirements/03-deferred-requirements.md#DFR11)). |
-| demand | | | | | X | Vague; a figure that can be derived from requests. |
-| eligibility | | | | | X | Deferred: the policy is unresolved ([Q01](04-stakeholder-questions.md#Q01), [DFR04](../requirements/03-deferred-requirements.md#DFR04)). |
-| passenger needs | | X | | | | Synonym of travel needs; attributes of Transport request ([FR04](../requirements/01-functional-requirements.md#FR04)). |
-| driver assignment | | | | X | | The act of assigning ([UC03](07-use-case-model.md#UC03)); recorded as the link between Journey stage, Driver and Vehicle. |
-| changes | X | | | | | **Change record**: many per request, each with old value, new value, date and user ([FR03](../requirements/01-functional-requirements.md#FR03)). |
-| confidential information | | | | | X | A quality concern handled by access rules ([NFR01](../requirements/02-non-functional-requirements.md#NFR01)), not a concept. |
-| **Transport requests and eligibility** | | | | | | |
-| passenger | X | | | | | **Passenger**: has identity and contact details and makes many requests over time. Interacts through staff, so not an actor. |
-| appointment location | | X | | | | Attribute of Appointment. |
-| appointment time | | X | | | | Attribute of Appointment. |
-| appointment date | | X | | | | Attribute of Appointment. |
-| estimated duration | | X | | | | Synonym of estimated finishing time; attribute of Appointment. |
-| collection address | | X | | | | Attribute of Transport request; may differ from the passenger's home address. |
-| travel needs | | X | | | | Attributes of Transport request ([FR04](../requirements/01-functional-requirements.md#FR04)). |
-| referrer | | | X | | | Offstage actor. Storing referrer details is deferred ([DFR01](../requirements/03-deferred-requirements.md#DFR01)). |
-| expected finishing time | | X | | | | Attribute of Appointment; an estimate is accepted ([A02](05-assumptions.md#A02)). |
-| family member |X| | | | | Synonym; recorded as a **Contact person**. |
-| contact | X | | | | | **Contact person**: name and phone number; may be the passenger or a family member ([FR01](../requirements/01-functional-requirements.md#FR01)). |
-| several calls | | | | X | | Describes repeated contact; the calls themselves are recorded as Contact attempts. |
-| allocation | | | | X | | Synonym of driver assignment. |
-| transport alternative | | | | | X | An eligibility criterion; deferred ([BR02](06-rules-and-uncertainty-register.md#BR02)). |
-| regular passengers |X| | | | | Synonym of **Passenger**; not a separate class. |
-| new passengers |X| | | | | Synonym of **Passenger**; "new" only matters for eligibility, which is deferred. |
-| eligibility discussion | | | | X | X | An event; recording it is deferred ([DFR04](../requirements/03-deferred-requirements.md#DFR04)). |
-| circumstances | | | | | X | Vague. |
-| practical travel needs | | X | | | | Synonym of travel needs. |
-| wheelchair space | | X | | | | Attribute of Transport request (needed) and of Vehicle (capacity) ([FR05](../requirements/01-functional-requirements.md#FR05)). |
-| assistance entering a vehicle | | X | | | | Attribute of Transport request. |
-| room for a walking aid | | X | | | | Attribute of Transport request. |
-| walking aid | | X | | | | Same as room for a walking aid. |
-| companion | | X | | | | Number of companion seats needed; attribute of Transport request. The companion is not recorded as a person. |
-| clinical diagnosis | | | | | X | Must not be held ([C07](06-rules-and-uncertainty-register.md#C07), [FR14](../requirements/01-functional-requirements.md#FR14)). |
-| emails | | | | | X | Channel; not stored ([A19](05-assumptions.md#A19)). |
-| notes | | X | | | | Free-text attribute of Transport request; clinical text can be removed ([FR14](../requirements/01-functional-requirements.md#FR14)). |
-| **Planning and driver allocation** | | | | | | |
-| suitable driver | | | | | X | Vague; suggesting suitable drivers is deferred ([DFR06](../requirements/03-deferred-requirements.md#DFR06)). |
-| unnecessary travel | | | | | X | A goal, not data. |
-| compatible passengers | | | | | X | Shared journeys are deferred ([DFR08](../requirements/03-deferred-requirements.md#DFR08)). |
-| nearby locations | | | | | X | Shared journeys are deferred. |
-| shared journeys | | | | | X | Deferred ([DFR08](../requirements/03-deferred-requirements.md#DFR08)). |
-| appointment times | | X | | | | Synonym of appointment time. |
-| vehicle capacity | | X | | | | Attributes of Vehicle: seats, wheelchair spaces, companion seats. |
-| acceptability of sharing | | X | | | | Agreement to share; yes/no attribute of Transport request ([FR04](../requirements/01-functional-requirements.md#FR04)). |
-| general availability | | X | | | | Attribute of Driver. |
-| individual journeys |X| | | | | Synonym of **Journey**. |
-| familiar areas | | X | | | | Preferred areas; attribute of Driver. |
-| dark (driving after dark) | | X | | | | Yes/no attribute of Driver. |
-| authorised drivers | | X | | | | Accessible-vehicle authorisation; yes/no attribute of Driver ([A04](05-assumptions.md#A04)). |
-| another passenger | | | | | X | Vague; refers to a vehicle already being committed. |
-| unsuccessful contacts | X | | | | | **Contact attempt**: many per journey, each with date, time and outcome ([FR07](../requirements/01-functional-requirements.md#FR07)). |
-| provisional assignment | | X | | | | A status value of Journey; reservation rules are deferred ([Q03](04-stakeholder-questions.md#Q03), [DFR09](../requirements/03-deferred-requirements.md#DFR09)). |
-| confirmation | | | | X | | Produced from journey data ([UC05](07-use-case-model.md#UC05), [FR09](../requirements/01-functional-requirements.md#FR09)); holds no data of its own. |
-| **Journey confirmation and completion** | | | | | | |
-| collection window | | X | | | | Attribute of Journey stage (start and end time). |
-| driver or service contact | | X | | | | Contact number shown on the confirmation. |
-| expected arrangements | | X | | | | Return arrangement (driver waits or returns later); attribute of Journey. |
-| contribution towards travel costs | | X | | | | Amount shown to the passenger; attribute of Journey. Taking payment is out of scope. |
-| exact collection time | | | | | X | Not promised; a collection window is used instead. |
-| previous appointments | | | | | X | Explains why times slip; no data to record. |
-| directions | | | | | X | Navigation is out of scope; the collection address and destination are enough. |
-| practical assistance information | | X | | | | Synonym of travel needs. |
-| unrelated personal details | | | | | X | Must not be shown to drivers ([NFR01](../requirements/02-non-functional-requirements.md#NFR01)). |
-| collection | | X | | X | | An event recorded by the driver; stored as the collection time on Journey stage ([FR10](../requirements/01-functional-requirements.md#FR10)). |
-| arrival | | X | | X | | An event; stored as the arrival time on Journey stage. |
-| return completion | | X | | X | | An event; stored as the completion time on the return stage. |
-| agreed address | |X| | | | Synonym of collection address. |
-| coordinator | | | X | | | Primary actor ([UC03](07-use-case-model.md#UC03), [UC09](07-use-case-model.md#UC09)). |
-| maximum waiting time | | | | | X | Policy unresolved ([Q05](04-stakeholder-questions.md#Q05)); deferred ([DFR12](../requirements/03-deferred-requirements.md#DFR12)). |
-| finishing times | |X| | | | Synonym of expected finishing time. |
-| return journey | X | | | | | Merged into **Journey stage**, with direction = return. |
-| different driver | | X | | | | A relationship, not a concept: each Journey stage has its own Driver. |
-| outward and return arrangements | X | | | | | Merged into **Journey stage**. |
-| plans | | | | | X | Vague. |
-| **Changes, cancellations and disruption** | | | | | | |
-| short notice | | X | | | | Notice given; attribute of Cancellation (hours before the collection window). |
-| cancellation | X | | | | | **Cancellation**: who cancelled, reason, notice given and whether the provider caused it ([FR11](../requirements/01-functional-requirements.md#FR11)). |
-| different collection address | | | | X | | A change, recorded as a Change record. |
-| illness | | X | | | | A value of the reason on Unavailability period. |
-| vehicle problems | | X | | | | A value of the reason on Unavailability period. |
-| severe weather | | X | | | | A value of the reason on Unavailability period. |
-| replacement (driver) | | | | X | X | Finding a replacement is deferred ([DFR14](../requirements/03-deferred-requirements.md#DFR14)); reassignment uses [UC03](07-use-case-model.md#UC03). |
-| passenger information |X| | | | | Synonym of **Passenger** details. |
-| suitable transport | | | | | X | Vague. |
-| late cancellations | | X | | | | Derived from notice given; no threshold is defined in the scenario. |
-| driver availability | X | | | | | **Unavailability period**: a driver unavailable from one date to another, with a reason ([FR12](../requirements/01-functional-requirements.md#FR12)). |
-| healthcare provider | | X | | | | Recorded only as "provider caused" on Cancellation; providers have no access ([BR09](06-rules-and-uncertainty-register.md#BR09)). |
-| cancellation reasons | | X | | | | Attribute of Cancellation, chosen from a standard list. |
-| **Information and organisational context** | | | | | | |
-| views | | | | | X | Screens showing existing data; the coordinator overview is deferred ([DFR16](../requirements/03-deferred-requirements.md#DFR16)). |
-| unallocated requests | | X | | | | A status value of Transport request. |
-| provisional journeys | | X | | | | A status value of Journey. |
-| confirmed journeys | | X | | | | A status value of Journey. |
-| accessible-vehicle demand | | | | | X | Derived figure. |
-| incomplete journey records | | X | | | | A status value: request not ready for allocation ([FR02](../requirements/01-functional-requirements.md#FR02)). |
-| summary reports | | | | X | X | Produced on demand from stored data ([UC09](07-use-case-model.md#UC09), [FR13](../requirements/01-functional-requirements.md#FR13)); derived output, not stored. |
-| funders | | | | | X | Offstage stakeholders who receive reports; they do not use the system. |
-| office staff | | | X | | | Primary actor. |
-| referring organisations | | | X | | | Synonym of referrer. |
-| mobile coverage | | | | | X | Environmental constraint ([C02](06-rules-and-uncertainty-register.md#C02), [NFR03](../requirements/02-non-functional-requirements.md#NFR03)). |
-| printed journey sheets | | | | | X | An output format; deferred ([DFR11](../requirements/03-deferred-requirements.md#DFR11)). |
-| first release | | | | | X | Project scope term. |
-| emergency dispatch | | | | | X | Out of scope ([C01](06-rules-and-uncertainty-register.md#C01)). |
-| healthcare records | | | | | X | Out of scope ([C01](06-rules-and-uncertainty-register.md#C01)). |
-| clinical decision-making | | | | | X | Out of scope ([C01](06-rules-and-uncertainty-register.md#C01)). |
-| **Stakeholder evidence** | | | | | | |
-| medical history | | | | | X | Must not be held or shown ([C07](06-rules-and-uncertainty-register.md#C07)). |
-| clinic | |X| | | | Synonym of healthcare provider. |
-| spreadsheet entry | | | | | X | Current tool. |
-| **Unresolved matters** | | | | | | |
-| eligibility evidence | | | | | X | Deferred ([Q01](04-stakeholder-questions.md#Q01)). |
-| review period | | | | | X | Deferred ([Q01](04-stakeholder-questions.md#Q01)). |
-| practical needs (shared with driver) | | X | | | | Synonym of travel needs; what drivers see is limited by [NFR01](../requirements/02-non-functional-requirements.md#NFR01). |
-| restricted information | | | | | X | An access rule ([NFR01](../requirements/02-non-functional-requirements.md#NFR01)), not a concept. |
-| outward stage | X | | | | | Merged into **Journey stage**, with direction = outward. |
-| return stage | X | | | | | Merged into **Journey stage**, with direction = return. |
-| cancellation responsibility | | X | | | | "Who cancelled" and "provider caused" attributes of Cancellation ([A06](05-assumptions.md#A06)). |
+Candidate concept analysis identifies the things the system must know about before any domain model is drawn. Every noun phrase in the scenario was listed in order, section by section, following the noun phrase technique of [Abbott (1983)](../references/01-text-sources.md#abbott) as adapted for conceptual modelling by [Larman (2004)](../references/01-text-sources.md#larman). About 120 candidates were found. Synonyms were merged under one preferred term, so that the same word is used throughout the report, and each candidate was then classified. **Conceptual classes** have their own identity and attributes, and the system records many of them. **Attributes or values** are simple data that describe a class. **Actors** are people or roles that use the system, as modelled in the [use case model](07-use-case-model.md). **Operations or events** are things that happen rather than things that are kept.
+
+The table below shows the candidates that remain in the model. The remaining candidates were excluded as out of scope, deferred, derived from other data, too vague, or tied to today's tools rather than the business. They are listed with reasons in the [rejected candidates record](../decisions/09-rejected-candidates.md), so every noun in the scenario is accounted for.
+
+| Candidate (synonyms merged) | Conceptual class | Attribute / value | Actor | Operation / event | Reason |
+|---|:-:|:-:|:-:|:-:|---|
+| **Conceptual classes** | | | | | |
+| Passenger *(residents, regular passengers, new passengers, passenger information)* | X | | | | Has identity and contact details and makes many requests over time. Interacts through staff, so not an actor. |
+| Contact person *(contact, family member)* | X | | | | Name and phone number; may be the passenger or a family member ([FR01](../requirements/01-functional-requirements.md#FR01)). |
+| Transport request *(request)* | X | | | | Created, amended and allocated, with its own lifecycle ([FR01](../requirements/01-functional-requirements.md#FR01)–[FR03](../requirements/01-functional-requirements.md#FR03)). |
+| Appointment *(planned healthcare appointment)* | X | | | | Has a location, date, time and estimated finishing time, and can be changed by the provider independently of the journey. |
+| Journey *(journeys, individual journeys)* | X | | | | The trip for one request, made up of an outward and a return stage ([FR08](../requirements/01-functional-requirements.md#FR08)). |
+| Journey stage *(outward stage, return stage, return journey, outward and return arrangements)* | X | | | | Each stage has its own driver, collection window and status ([FR08](../requirements/01-functional-requirements.md#FR08), [A05](05-assumptions.md#A05)). |
+| Driver: Volunteer driver, Employed driver *(trained volunteer drivers, employed drivers)* | X | | X | | Stored record of availability, preferences and authorisation ([FR06](../requirements/01-functional-requirements.md#FR06), [FR12](../requirements/01-functional-requirements.md#FR12)), and the actor who records progress ([UC06](07-use-case-model.md#UC06)). |
+| Vehicle: Own car, Accessible vehicle *(own cars, accessible vehicles)* | X | | | | Capacity is checked on assignment ([FR05](../requirements/01-functional-requirements.md#FR05)); accessible vehicles need an authorised driver ([FR06](../requirements/01-functional-requirements.md#FR06)). |
+| Contact attempt *(unsuccessful contacts)* | X | | | | Many per journey, each with date, time and outcome ([FR07](../requirements/01-functional-requirements.md#FR07)). |
+| Change record *(changes)* | X | | | | Many per request, each with old value, new value, date and user ([FR03](../requirements/01-functional-requirements.md#FR03)). |
+| Cancellation | X | | | | Who cancelled, reason, notice given and whether the provider caused it ([FR11](../requirements/01-functional-requirements.md#FR11)). |
+| Unavailability period *(driver availability)* | X | | | | A driver unavailable from one date to another, with a reason ([FR12](../requirements/01-functional-requirements.md#FR12)). |
+| **Attributes and values** | | | | | |
+| Appointment details: *appointment location, appointment date, appointment time(s), estimated duration, expected finishing time(s)* | | X | | | Attributes of Appointment. Estimated duration and finishing time are merged; an estimate is accepted ([A02](05-assumptions.md#A02)). |
+| Request details: *collection address, agreed address, notes* | | X | | | Attributes of Transport request; clinical text can be removed from notes ([FR14](../requirements/01-functional-requirements.md#FR14)). |
+| Travel needs: *passenger needs, practical travel needs, practical assistance information, practical needs (shared with driver), wheelchair space, assistance entering a vehicle, room for a walking aid, companion, acceptability of sharing* | | X | | | Attributes of Transport request ([FR04](../requirements/01-functional-requirements.md#FR04)). Simple values that can vary from one trip to the next. |
+| Vehicle capacity: *seats, wheelchair spaces, companion seats* | | X | | | Attributes of Vehicle, compared with travel needs ([FR05](../requirements/01-functional-requirements.md#FR05)). |
+| Driver details: *general availability, familiar areas, driving after dark, authorised drivers* | | X | | | Attributes of Driver; authorisation is a yes/no value ([A04](05-assumptions.md#A04)). |
+| Journey details: *collection window, expected arrangements, contribution towards travel costs, driver or service contact* | | X | | | Attributes of Journey and Journey stage, shown on the confirmation ([FR09](../requirements/01-functional-requirements.md#FR09)). Taking payment is out of scope. |
+| Progress: *collection, arrival, return completion* | | X | | X | Events recorded by the driver, stored as times on Journey stage ([FR10](../requirements/01-functional-requirements.md#FR10)). |
+| Status values: *unallocated requests, incomplete journey records, provisional assignment, provisional journeys, confirmed journeys* | | X | | | Values of the status attribute on Transport request and Journey. Provisional reservation rules are deferred ([Q03](04-stakeholder-questions.md#Q03)). |
+| Cancellation details: *short notice, late cancellations, cancellation reasons, cancellation responsibility, healthcare provider, clinic* | | X | | | Attributes of Cancellation. The provider is recorded only as "provider caused" ([BR09](06-rules-and-uncertainty-register.md#BR09), [A06](05-assumptions.md#A06)). No "late" threshold is defined. |
+| Unavailability reasons: *illness, vehicle problems, severe weather* | | X | | | Values of the reason on Unavailability period. |
+| Different driver | | X | | | A relationship, not a concept: each Journey stage has its own Driver. |
+| **Actors** | | | | | |
+| Office staff *(staff)* | | | X | | Primary actor ([UC01](07-use-case-model.md#UC01), [UC07](07-use-case-model.md#UC07)). |
+| Coordinator | | | X | | Primary actor ([UC03](07-use-case-model.md#UC03), [UC09](07-use-case-model.md#UC09)). |
+| Referrer *(referring organisations, local support organisation)* | | | X | | Offstage actor. Storing referrer details is deferred ([DFR01](../requirements/03-deferred-requirements.md#DFR01)). |
+| **Operations and events** | | | | | |
+| Driver assignment *(allocation)* | | | | X | The act of assigning ([UC03](07-use-case-model.md#UC03)); recorded as the link between Journey stage, Driver and Vehicle. |
+| Several calls | | | | X | Each call is recorded as a Contact attempt ([UC04](07-use-case-model.md#UC04)). |
+| Different collection address | | | | X | A change, recorded as a Change record ([UC02](07-use-case-model.md#UC02)). |
+| Confirmation | | | | X | Produced from journey data ([UC05](07-use-case-model.md#UC05), [FR09](../requirements/01-functional-requirements.md#FR09)); holds no data of its own. |
+| Summary reports | | | | X | Produced on demand from stored data ([UC09](07-use-case-model.md#UC09), [FR13](../requirements/01-functional-requirements.md#FR13)); not stored. |
+
+## Conceptual Classes Carried Forward
+
+These classes go forward to the [domain model](10-domain-model.md):
+| Class | Attributes | Requirement|
+|---|---|---|
+| Passenger | name, home address, phone | FR01 |
+| Contact person | name, phone, relationship to passenger | FR01 |
+| Transport request | collection address, travel needs, agreement to share, notes, status | FR01, FR02, FR04, FR14 |
+| Appointment | location, date, time, estimated finishing time | FR01, A02 |
+| Journey | status, return arrangement, travel contribution | FR08, FR09 |
+| Journey stage | direction (outward / return), collection window, collection, arrival and completion times, status | FR08, FR10 |
+| Driver *(Volunteer driver, Employed driver)* | name, phone, general availability, preferred areas, drives after dark, accessible-vehicle authorisation | FR06, FR12 |
+| Vehicle *(Own car, Accessible vehicle)* | registration, seats, wheelchair spaces, companion seats | FR05 |
+| Contact attempt | date, time, outcome | FR07 |
+| Change record | field, old value, new value, date, user | FR03 |
+| Cancellation | who cancelled, reason, notice given, provider caused | FR11 |
+| Unavailability period | start date, end date, reason | FR12 |
+
+## Modelling Decisions
+
+- **Driver is both a class and an actor.** As an actor, a driver records journey progress. As a class, the system stores drivers' availability, preferences and authorisation, which FR06 and FR12 depend on. The two views are kept consistent: the actor is the person, and the class is the record about that person.
+- **Appointment is separate from Transport request.** The appointment belongs to the healthcare provider and can change on its own ("especially when the clinic changes the appointment"). Keeping it separate makes clear what changed, and leaves room for one appointment needing more than one request in future.
+- **Outward and return are one class, Journey stage, rather than two.** Both stages have the same attributes, so a single class with a direction attribute avoids duplication and directly supports a different driver on each stage (FR08, A05).
+- **Travel needs are attributes, not a class.** Each need is a simple value (a number of spaces or a yes/no), and needs can vary by request. For example, a companion may travel on one trip and not another.
+- **Funder report and confirmation are not classes.** Both are produced from stored data whenever needed and hold nothing of their own. Storing them would duplicate data and risk it falling out of date.
