@@ -1,0 +1,116 @@
+@startuml domain-model
+left to right direction
+hide methods
+hide circle
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam nodesep 60
+skinparam ranksep 70
+
+title South Kerry Community Travel Network: Domain Model
+
+class Passenger {
+  name
+  homeAddress
+  phone
+}
+
+class ContactPerson {
+  name
+  phone
+  relationshipToPassenger
+}
+
+class TransportRequest {
+  collectionAddress
+  wheelchairSpacesNeeded
+  companionSeatsNeeded
+  boardingAssistance
+  walkingAid
+  agreesToShare
+  notes
+  status
+}
+
+class Appointment {
+  location
+  appointmentDate
+  appointmentTime
+  estimatedFinishTime
+}
+
+class Journey {
+  status
+  returnArrangement
+  travelContribution
+}
+
+class JourneyStage {
+  direction
+  collectionWindowStart
+  collectionWindowEnd
+  collectedAt
+  arrivedAt
+  completedAt
+  status
+}
+
+class Driver {
+  name
+  phone
+  driverType
+  generalAvailability
+  preferredAreas
+  drivesAfterDark
+  accessibleAuthorised
+}
+
+class Vehicle {
+  registration
+  vehicleType
+  passengerSeats
+  wheelchairSpaces
+  companionSeats
+}
+
+class ContactAttempt {
+  attemptDateTime
+  outcome
+}
+
+class ChangeRecord {
+  changedField
+  oldValue
+  newValue
+  changedAt
+  changedBy
+}
+
+class Cancellation {
+  cancelledBy
+  reason
+  cancelledAt
+  noticeGiven
+  providerCaused
+}
+
+class UnavailabilityPeriod {
+  startDate
+  endDate
+  reason
+}
+
+Passenger "1" -- "0..*" TransportRequest : makes
+TransportRequest "0..*" -- "1" ContactPerson : names as contact
+TransportRequest "1" -- "1" Appointment : is for
+TransportRequest "1" -- "0..1" Journey : is fulfilled by
+TransportRequest "1" -- "0..*" ChangeRecord : has history of
+Journey "1" -- "1..2" JourneyStage : is made up of
+JourneyStage "0..*" -- "0..1" Driver : is driven by
+JourneyStage "0..*" -- "0..1" Vehicle : uses
+Driver "0..1" -- "0..*" Vehicle : supplies
+Driver "1" -- "0..*" ContactAttempt : is contacted in
+ContactAttempt "0..*" -- "1" JourneyStage : is about
+Cancellation "0..1" -- "1..*" JourneyStage : cancels
+Driver "1" -- "0..*" UnavailabilityPeriod : is unavailable during
+@enduml

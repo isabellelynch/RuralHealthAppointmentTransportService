@@ -13,8 +13,8 @@ The table below shows the candidates that remain in the model. The remaining can
 | Appointment *(planned healthcare appointment)* | X | | | | Has a location, date, time and estimated finishing time, and can be changed by the provider independently of the journey. |
 | Journey *(journeys, individual journeys)* | X | | | | The trip for one request, made up of an outward and a return stage ([FR08](../requirements/01-functional-requirements.md#FR08)). |
 | Journey stage *(outward stage, return stage, return journey, outward and return arrangements)* | X | | | | Each stage has its own driver, collection window and status ([FR08](../requirements/01-functional-requirements.md#FR08), [A05](05-assumptions.md#A05)). |
-| Driver: Volunteer driver, Employed driver *(trained volunteer drivers, employed drivers)* | X | | X | | Stored record of availability, preferences and authorisation ([FR06](../requirements/01-functional-requirements.md#FR06), [FR12](../requirements/01-functional-requirements.md#FR12)), and the actor who records progress ([UC06](07-use-case-model.md#UC06)). |
-| Vehicle: Own car, Accessible vehicle *(own cars, accessible vehicles)* | X | | | | Capacity is checked on assignment ([FR05](../requirements/01-functional-requirements.md#FR05)); accessible vehicles need an authorised driver ([FR06](../requirements/01-functional-requirements.md#FR06)). |
+| Driver *(trained volunteer drivers, employed drivers)* | X | | X | | Stored record of availability, preferences and authorisation ([FR06](../requirements/01-functional-requirements.md#FR06), [FR12](../requirements/01-functional-requirements.md#FR12)), and the actor who records progress ([UC06](07-use-case-model.md#UC06)). |
+| Vehicle *(own cars, accessible vehicles)* | X | | | | Capacity is checked on assignment ([FR05](../requirements/01-functional-requirements.md#FR05)); accessible vehicles need an authorised driver ([FR06](../requirements/01-functional-requirements.md#FR06)). |
 | Contact attempt *(unsuccessful contacts)* | X | | | | Many per journey, each with date, time and outcome ([FR07](../requirements/01-functional-requirements.md#FR07)). |
 | Change record *(changes)* | X | | | | Many per request, each with old value, new value, date and user ([FR03](../requirements/01-functional-requirements.md#FR03)). |
 | Cancellation | X | | | | Who cancelled, reason, notice given and whether the provider caused it ([FR11](../requirements/01-functional-requirements.md#FR11)). |
@@ -45,6 +45,7 @@ The table below shows the candidates that remain in the model. The remaining can
 ## Conceptual Classes Carried Forward
 
 These classes go forward to the [domain model](10-domain-model.md):
+
 | Class | Attributes | Requirement|
 |---|---|---|
 | Passenger | name, home address, phone | FR01 |
@@ -53,8 +54,8 @@ These classes go forward to the [domain model](10-domain-model.md):
 | Appointment | location, date, time, estimated finishing time | FR01, A02 |
 | Journey | status, return arrangement, travel contribution | FR08, FR09 |
 | Journey stage | direction (outward / return), collection window, collection, arrival and completion times, status | FR08, FR10 |
-| Driver *(Volunteer driver, Employed driver)* | name, phone, general availability, preferred areas, drives after dark, accessible-vehicle authorisation | FR06, FR12 |
-| Vehicle *(Own car, Accessible vehicle)* | registration, seats, wheelchair spaces, companion seats | FR05 |
+| Driver | name, phone, driver type (volunteer / employed), general availability, preferred areas, drives after dark, accessible-vehicle authorisation | FR06, FR12 |
+| Vehicle | registration, vehicle type (own car / accessible), seats, wheelchair spaces, companion seats | FR05 |
 | Contact attempt | date, time, outcome | FR07 |
 | Change record | field, old value, new value, date, user | FR03 |
 | Cancellation | who cancelled, reason, notice given, provider caused | FR11 |
@@ -67,3 +68,4 @@ These classes go forward to the [domain model](10-domain-model.md):
 - **Outward and return are one class, Journey stage, rather than two.** Both stages have the same attributes, so a single class with a direction attribute avoids duplication and directly supports a different driver on each stage (FR08, A05).
 - **Travel needs are attributes, not a class.** Each need is a simple value (a number of spaces or a yes/no), and needs can vary by request. For example, a companion may travel on one trip and not another.
 - **Funder report and confirmation are not classes.** Both are produced from stored data whenever needed and hold nothing of their own. Storing them would duplicate data and risk it falling out of date.
+- **Volunteer and employed drivers, and own cars and accessible vehicles, are types rather than subclasses.** They share the same attributes and differ only in the rules applied to them, such as accessible-vehicle authorisation (FR06). A type attribute records the difference without adding subclasses that carry no data of their own.
