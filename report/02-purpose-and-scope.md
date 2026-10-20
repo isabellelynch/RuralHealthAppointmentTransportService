@@ -1,14 +1,14 @@
 # Purpose and Scope
 
-This section states what the proposed system is for and where its boundaries lie. A clear scope statement lets every requirement be tested against it and helps prevent scope creep ([Wiegers and Beatty, 2013](../references/01-text-sources.md#wiegers)). Scope is divided into three parts: capabilities specified for the first release, capabilities that are in scope but deferred to a later release, and items that are out of scope altogether.
+This section states what the proposed system is for and where its boundaries lie. A clear scope statement lets every requirement be tested against it and helps prevent scope creep ([Wiegers and Beatty, 2013](../references/01-text-sources.md#wiegers)). Scope is divided into three parts: capabilities specified for the first release, capabilities that are in scope but deferred to a later release and items that are out of scope altogether.
 
 ## Purpose Statement
 
-The system will support South Kerry Community Travel Network in coordinating planned, non-emergency transport to healthcare appointments, from receiving a request through to completing the journey. It will help staff record passenger needs, allocate suitable drivers and vehicles, and manage changes, while sharing personal information only where necessary.
+The system will support South Kerry Community Travel Network in coordinating planned, non-emergency transport to healthcare appointments, from receiving a request through to completing the journey. It will help staff record passenger needs, allocate suitable drivers and vehicles and manage changes, while sharing personal information only where necessary.
 
 ## In Scope: Specified for the First Release
 
-- Recording transport requests with their mandatory details, and preventing allocation until those details are complete ([FR01](../requirements/01-functional-requirements.md#FR01), [FR02](../requirements/01-functional-requirements.md#FR02)).
+- Recording transport requests with their mandatory details and preventing allocation until those details are complete ([FR01](../requirements/01-functional-requirements.md#FR01), [FR02](../requirements/01-functional-requirements.md#FR02)).
 - Recording changes to requests ([FR03](../requirements/01-functional-requirements.md#FR03)).
 - Recording practical travel needs ([FR04](../requirements/01-functional-requirements.md#FR04)).
 - Checking vehicle capacity and accessible-vehicle authorisation when a journey is assigned ([FR05](../requirements/01-functional-requirements.md#FR05), [FR06](../requirements/01-functional-requirements.md#FR06)).
@@ -27,7 +27,7 @@ The system will support South Kerry Community Travel Network in coordinating pla
 These are part of the intended system but are not specified for the first release, usually because they depend on an unresolved policy. See [deferred requirements](../requirements/03-deferred-requirements.md).
 
 - Eligibility decisions and reviews ([DFR04](../requirements/03-deferred-requirements.md#DFR04), [DFR05](../requirements/03-deferred-requirements.md#DFR05)).
-- Suggesting suitable drivers and vehicles, and rechecking them after changes ([DFR06](../requirements/03-deferred-requirements.md#DFR06), [DFR13](../requirements/03-deferred-requirements.md#DFR13)).
+- Suggesting suitable drivers and vehicles and rechecking them after changes ([DFR06](../requirements/03-deferred-requirements.md#DFR06), [DFR13](../requirements/03-deferred-requirements.md#DFR13)).
 - Shared journeys and provisional assignments ([DFR08](../requirements/03-deferred-requirements.md#DFR08), [DFR09](../requirements/03-deferred-requirements.md#DFR09)).
 - Driver journey sheets, printed and on a phone ([DFR11](../requirements/03-deferred-requirements.md#DFR11)).
 - Recording driver exceptions and waiting time ([DFR12](../requirements/03-deferred-requirements.md#DFR12)).
@@ -43,3 +43,18 @@ These are part of the intended system but are not specified for the first releas
 - Processing payments for travel contributions.
 - Driver recruitment, training and vehicle maintenance.
 - Live vehicle tracking or turn-by-turn navigation.
+
+## Dependencies, Assumptions and Constraints
+
+The first release depends on things outside the system, each linked to the assumption, constraint or question that records it.
+
+| Dependency | Why the first release relies on it | Recorded as |
+|---|---|---|
+| Accurate driver and vehicle records are entered before going live. | The capacity, authorisation and unavailability checks ([FR05](../requirements/01-functional-requirements.md#FR05), [FR06](../requirements/01-functional-requirements.md#FR06), [FR12](../requirements/01-functional-requirements.md#FR12)) are only as good as this data. | [C08](06-rules-and-uncertainty-register.md#C08), [R06](06-rules-and-uncertainty-register.md#R06) |
+| Office staff continue to telephone drivers, passengers and referrers. | The first release records contacts and produces confirmations but sends no messages itself. | [A09](05-assumptions.md#A09), [Q17](04-stakeholder-questions.md#Q17) |
+| Appointment changes reach the service through passengers or referrers. | The system has no link to healthcare providers, so changes depend on being reported. | [Out of scope](#out-of-scope), [R08](06-rules-and-uncertainty-register.md#R08) |
+| Most drivers have a smartphone, the rest will phone in their progress. | Progress recording ([FR10](../requirements/01-functional-requirements.md#FR10)) assumes a device or a phone call to the office. | [A08](05-assumptions.md#A08), [C03](06-rules-and-uncertainty-register.md#C03), [Q14](04-stakeholder-questions.md#Q14) |
+| The network agrees the unresolved policies. | Eligibility, provisional reservation, waiting time and notification order must be decided before the deferred features can be specified. | [C09](06-rules-and-uncertainty-register.md#C09), [Q01](04-stakeholder-questions.md#Q01), [Q03](04-stakeholder-questions.md#Q03), [Q05](04-stakeholder-questions.md#Q05), [Q07](04-stakeholder-questions.md#Q07) |
+| The network sets data retention periods. | Backup, removal and reporting must follow data protection law. | [A17](05-assumptions.md#A17), [C06](06-rules-and-uncertainty-register.md#C06), [Q20](04-stakeholder-questions.md#Q20) |
+
+
