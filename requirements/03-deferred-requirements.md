@@ -1,10 +1,12 @@
 # Deferred Requirements
 
-These candidate requirements were identified from the scenario but are not specified for the first release. They are deferred for one of three reasons: they depend on a policy the scenario leaves unresolved, they are efficiency improvements rather than core coordination, or they would make the first release larger than needed. They are kept so that the analysis remains traceable from the scenario to a decision ([Gotel and Finkelstein, 1994](../references/01-text-sources.md#gotel)), and so they can be revisited once the related stakeholder questions are answered.
+These candidate requirements were identified from the scenario but are not specified for the first release. They are deferred for one of three reasons: they depend on a policy the scenario leaves unresolved, they are efficiency improvements rather than core coordination or they would make the first release larger than needed. They are kept so that the analysis remains traceable from the scenario to a decision ([Gotel and Finkelstein, 1994](../references/01-text-sources.md#gotel)) and so they can be revisited once the related stakeholder questions are answered.
+
+Priorities apply to the **next release**: a deferred Must is needed but waits on an unresolved policy or a first-release requirement.
 
 ## Deferred functional requirements
 
-| ID | Requirement | Priority | Reason deferred | Related |
+| ID | Requirement | Next-release priority | Reason deferred | Related |
 |-------|-------------|----------|-----------------|---------|
 | <a id="DFR01"></a>DFR01 | The system shall record how a request arrived (telephone, referral email or local support organisation) and the referrer's details. | Should | Useful for contact and reporting, but not needed to complete a journey. | – |
 | <a id="DFR02"></a>DFR02 | The system shall allow a request to be saved as incomplete and show which details are missing. | Should | The blocking rule is kept as [FR02](01-functional-requirements.md#FR02); saving drafts is a usability improvement. | [A01](../report/05-assumptions.md#A01) |
