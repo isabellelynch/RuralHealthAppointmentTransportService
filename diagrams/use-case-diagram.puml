@@ -5,7 +5,12 @@ title South Kerry Community Travel Network: Use Case Diagram (First Release)
 
 actor "Office Staff" as Staff
 actor "Coordinator" as Coord
-actor "Volunteer/Employed Driver" as Driver
+actor "Driver" as Driver
+actor "Volunteer Driver" as VDriver
+actor "Employed Driver" as EDriver
+
+VDriver -up-|> Driver
+EDriver -up-|> Driver
 
 rectangle "Transport Coordination System" {
   usecase "Record Transport Request" as UC01
@@ -19,14 +24,14 @@ rectangle "Transport Coordination System" {
   usecase "Record Journey Progress" as UC06
 }
 
-Staff --> UC01
-Staff --> UC02
-Staff --> UC04
-Staff --> UC05
-Staff --> UC07
-Staff --> UC08
-Coord --> UC03
-Coord --> UC09
-Driver --> UC06
+Staff -- UC01
+Staff -- UC02
+Staff -- UC04
+Staff -- UC05
+Staff -- UC07
+Staff -- UC08
+Coord -- UC03
+Coord -- UC09
+Driver -- UC06
 
 @enduml

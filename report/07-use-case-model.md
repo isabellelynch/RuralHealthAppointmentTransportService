@@ -1,6 +1,6 @@
 # Use Case Model
 
-A use case describes how an actor uses the system to achieve a goal, together with what happens when things go wrong ([Cockburn, 2001](../references/01-text-sources.md#cockburn)). This model turns the functional requirements into the tasks people will carry out, at user-goal level: each is a task an actor completes in one session. The system boundary is the **Transport Coordination System**. Only primary actors appear on the diagram; passengers, referrers, funders and other offstage stakeholders are covered in the [stakeholder and actor catalogue](03-stakeholder-and-actor-catalogue.md). The use case with the richest scenario evidence, UC03, is described in detail, following [Cockburn (2001)](../references/01-text-sources.md#cockburn) and [Larman (2004)](../references/01-text-sources.md#larman).
+A use case describes how an actor uses the system to achieve a goal, together with what happens when things go wrong ([Cockburn, 2001](../references/01-text-sources.md#cockburn)). This model turns the functional requirements into the tasks people will carry out, at user-goal level: each is a task an actor completes in one session. The system boundary is the **Transport Coordination System**. Only primary actors appear on the diagram: passengers, referrers, funders and other offstage stakeholders are covered in the [stakeholder and actor catalogue](03-stakeholder-and-actor-catalogue.md). The use case with the richest scenario evidence, UC03, is described in detail, following [Cockburn (2001)](../references/01-text-sources.md#cockburn) and [Larman (2004)](../references/01-text-sources.md#larman).
 
 ## Use Case Diagram
 
@@ -16,23 +16,20 @@ Source: [use-case-diagram.puml](../diagrams/use-case-diagram.puml)
 | Coordinator | Assigns drivers and vehicles and produces funder reports. |
 | Driver | Records journey progress. Specialised by *Volunteer driver* (own car) and *Employed driver* (accessible vehicle), who share this goal but differ in the rules applied to them, such as accessible-vehicle authorisation ([FR06](../requirements/01-functional-requirements.md#FR06)). |
 
-No include or extend relationships are used: checks such as vehicle capacity and driver authorisation are steps inside UC03, not goals in their own right.
 
 ## Use Case Catalogue
 
 | ID | Use case | Primary actor | Description | Requirements |
 |----|----------|---------------|-------------|--------------|
 | <a id="UC01"></a>UC01 | Record Transport Request | Office staff | Enter a request's mandatory details and practical travel needs. The request cannot be allocated until all mandatory details are complete. | [FR01](../requirements/01-functional-requirements.md#FR01), [FR02](../requirements/01-functional-requirements.md#FR02), [FR04](../requirements/01-functional-requirements.md#FR04) |
-| <a id="UC02"></a>UC02 | Amend Request | Office staff | Change a request when an appointment or need changes, with each change recorded; remove clinical information a referrer included. | [FR03](../requirements/01-functional-requirements.md#FR03), [FR14](../requirements/01-functional-requirements.md#FR14) |
+| <a id="UC02"></a>UC02 | Amend Request | Office staff | Change a request when an appointment or need changes, with each change recorded. Remove clinical information a referrer included. | [FR03](../requirements/01-functional-requirements.md#FR03), [FR14](../requirements/01-functional-requirements.md#FR14) |
 | [UC03](#UC03) | Assign Driver and Vehicle | Coordinator | Assign a suitable driver and vehicle to the outward and return stages of a journey. *Detailed below.* | [FR05](../requirements/01-functional-requirements.md#FR05), [FR06](../requirements/01-functional-requirements.md#FR06), [FR08](../requirements/01-functional-requirements.md#FR08) |
 | <a id="UC04"></a>UC04 | Log Driver Contact Attempt | Office staff | Record the date, time and outcome of each call to a driver about a journey. | [FR07](../requirements/01-functional-requirements.md#FR07) |
-| <a id="UC05"></a>UC05 | Confirm Journey with Passenger | Office staff | Produce a confirmation stating the collection window, contact number and whether the driver will wait or return later. | [FR09](../requirements/01-functional-requirements.md#FR09) |
+| <a id="UC05"></a>UC05 | Confirm Journey with Passenger | Office staff | Produce a confirmation stating the collection window, the driver or service contact, whether the driver will wait or return later and any travel contribution. | [FR09](../requirements/01-functional-requirements.md#FR09) |
 | <a id="UC06"></a>UC06 | Record Journey Progress | Driver | Record collection, arrival and return completion for each stage, including when there is no mobile signal. | [FR10](../requirements/01-functional-requirements.md#FR10), [NFR03](../requirements/02-non-functional-requirements.md#NFR03) |
 | <a id="UC07"></a>UC07 | Cancel Journey | Office staff | Cancel a journey or one stage, recording who cancelled, the reason, the notice given and whether the healthcare provider caused it. | [FR11](../requirements/01-functional-requirements.md#FR11) |
 | <a id="UC08"></a>UC08 | Record Driver Unavailability | Office staff | Record a period when a driver is unavailable and list the journeys affected, for reassignment through UC03. | [FR12](../requirements/01-functional-requirements.md#FR12) |
 | <a id="UC09"></a>UC09 | Produce Funder Report | Coordinator | Produce anonymised totals for a chosen date range. | [FR13](../requirements/01-functional-requirements.md#FR13) |
-
-Every functional requirement, FR01 to FR14, is realised by at least one use case.
 
 ## Detailed Use Case
 

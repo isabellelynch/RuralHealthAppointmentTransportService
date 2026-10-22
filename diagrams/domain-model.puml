@@ -113,4 +113,23 @@ Driver "1" -- "0..*" ContactAttempt : is contacted in
 ContactAttempt "0..*" -- "1" JourneyStage : is about
 Cancellation "0..1" -- "1..*" JourneyStage : cancels
 Driver "1" -- "0..*" UnavailabilityPeriod : is unavailable during
+
+note bottom of Vehicle
+  Capacity rule (FR05, BR05): a vehicle cannot be
+  used for a stage if its wheelchairSpaces or
+  companionSeats are fewer than the request needs.
+end note
+
+note top of Driver
+  Authorisation rule (FR06, BR04): only a driver
+  with accessibleAuthorised = yes may drive an
+  accessible vehicle. Authorisation per vehicle
+  or with expiry is unconfirmed (A04, Q18).
+end note
+
+note bottom of JourneyStage
+  Unresolved (Q03): whether a provisional
+  assignment reserves the driver or vehicle
+  is not modelled until the policy is agreed.
+end note
 @enduml
