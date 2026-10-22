@@ -13,17 +13,23 @@ Shields, A. (2026) *Object Oriented Analysis and Design SAAD71000*. Lecture note
 
 <!-- Books and Papers -->
 
+<a id="abbott"></a>
+Abbott, R.J. (1983) 'Program design by informal English descriptions', *Communications of the ACM*, 26(11), pp. 882–894.
+
 <a id="clegg"></a>
 Clegg, D. and Barker, R. (1994) *Case Method Fast-Track: A RAD Approach*. Wokingham: Addison-Wesley.
 
 <a id="cockburn"></a>
 Cockburn, A. (2001) *Writing Effective Use Cases*. Boston, MA: Addison-Wesley.
 
-<a id="wiegers"></a>
-Wiegers, K. and Beatty, J. (2013) *Software Requirements*. 3rd edn. Redmond, WA: Microsoft Press.
+<a id="cohn"></a>
+Cohn, M. (2004) *User Stories Applied: For Agile Software Development*. Boston, MA: Addison-Wesley.
 
-<a id="wynne"></a>
-Wynne, M. and Hellesøy, A. (2012) *The Cucumber Book: Behaviour-Driven Development for Testers and Developers*. Raleigh, NC: Pragmatic Bookshelf.
+<a id="gotel"></a>
+Gotel, O.C.Z. and Finkelstein, A.C.W. (1994) 'An analysis of the requirements traceability problem', in *Proceedings of the First International Conference on Requirements Engineering*. Colorado Springs, CO: IEEE, pp. 94–101.
+
+<a id="babok"></a>
+IIBA (2015) *A Guide to the Business Analysis Body of Knowledge (BABOK Guide)*. 3rd edn. Toronto: International Institute of Business Analysis.
 
 <a id="larman"></a>
 Larman, C. (2004) *Applying UML and Patterns: An Introduction to Object-Oriented Analysis and Design and Iterative Development*. 3rd edn. Upper Saddle River, NJ: Prentice Hall.
@@ -34,11 +40,11 @@ Robertson, S. and Robertson, J. (2012) *Mastering the Requirements Process: Gett
 <a id="sommerville"></a>
 Sommerville, I. (2016) *Software Engineering*. 10th edn. Harlow: Pearson.
 
-<a id="gotel"></a>
-Gotel, O.C.Z. and Finkelstein, A.C.W. (1994) 'An analysis of the requirements traceability problem', in *Proceedings of the First International Conference on Requirements Engineering*. Colorado Springs, CO: IEEE, pp. 94–101.
+<a id="wiegers"></a>
+Wiegers, K. and Beatty, J. (2013) *Software Requirements*. 3rd edn. Redmond, WA: Microsoft Press.
 
-<a id="babok"></a>
-IIBA (2015) *A Guide to the Business Analysis Body of Knowledge (BABOK Guide)*. 3rd edn. Toronto: International Institute of Business Analysis.
+<a id="wynne"></a>
+Wynne, M. and Hellesøy, A. (2012) *The Cucumber Book: Behaviour-Driven Development for Testers and Developers*. Raleigh, NC: Pragmatic Bookshelf.
 
 <!-- Policies and Guidelines -->
 
