@@ -7,18 +7,18 @@ The table below shows the candidates that remain in the model. The remaining can
 | Candidate (synonyms merged) | Conceptual class | Attribute / value | Actor | Operation / event | Decision | Reason |
 |---|:-:|:-:|:-:|:-:|---|---|
 | **Conceptual classes** | | | | | | |
-| Passenger *(residents, regular passengers, new passengers, passenger information)* | X | | | Keep, merge synonyms | | Has identity and contact details and makes many requests over time. Interacts through staff, so not an actor. |
-| Contact person *(contact, family member)* | X | | | Keep, merge family member | | Name and phone number, may be the passenger or a family member ([FR01](../requirements/01-functional-requirements.md#FR01)). |
-| Transport request *(request)* | X | | | Keep | | Created, amended and allocated, with its own lifecycle ([FR01](../requirements/01-functional-requirements.md#FR01)–[FR03](../requirements/01-functional-requirements.md#FR03)). |
-| Appointment *(planned healthcare appointment)* | X | | | Keep | | Has a location, date, time and estimated finishing time, and can be changed by the provider independently of the journey. |
-| Journey *(journeys, individual journeys)* | X | | | Keep | | The trip for one request, made up of an outward and a return stage ([FR08](../requirements/01-functional-requirements.md#FR08)). |
-| Journey stage *(outward stage, return stage, return journey, outward and return arrangements)* | X | | | Keep, merge outward and return | | Each stage has its own driver, collection window and status ([FR08](../requirements/01-functional-requirements.md#FR08), [A05](05-assumptions.md#A05)). |
-| Driver *(trained volunteer drivers, employed drivers)* | X | | X | Keep, merge driver kinds as a type | | Stored record of availability, preferences and authorisation ([FR06](../requirements/01-functional-requirements.md#FR06), [FR12](../requirements/01-functional-requirements.md#FR12)), and the actor who records progress ([UC06](07-use-case-model.md#UC06)). |
-| Vehicle *(own cars, accessible vehicles)* | X | | | Keep, merge vehicle kinds as a type | | Capacity is checked on assignment ([FR05](../requirements/01-functional-requirements.md#FR05)), accessible vehicles need an authorised driver ([FR06](../requirements/01-functional-requirements.md#FR06)). |
-| Contact attempt *(unsuccessful contacts)* | X | | | Keep | | Many per journey, each with date, time and outcome ([FR07](../requirements/01-functional-requirements.md#FR07)). |
-| Change record *(changes)* | X | | | Keep | | Many per request, each with old value, new value, date and user ([FR03](../requirements/01-functional-requirements.md#FR03)). |
-| Cancellation | X | | | Keep | | Who cancelled, reason, notice given and whether the provider caused it ([FR11](../requirements/01-functional-requirements.md#FR11)). |
-| Unavailability period *(driver availability)* | X | | | Keep | | A driver unavailable from one date to another, with a reason ([FR12](../requirements/01-functional-requirements.md#FR12)). |
+| Passenger *(residents, regular passengers, new passengers, passenger information)* | X |  |  |  | Keep, merge synonyms | Has identity and contact details and makes many requests over time. Interacts through staff, so not an actor. |
+| Contact person *(contact, family member)* | X |  |  |  | Keep, merge family member | Name and phone number, may be the passenger or a family member ([FR01](../requirements/01-functional-requirements.md#FR01)). |
+| Transport request *(request)* | X |  |  |  | Keep | Created, amended and allocated, with its own lifecycle ([FR01](../requirements/01-functional-requirements.md#FR01) to [FR03](../requirements/01-functional-requirements.md#FR03)). |
+| Appointment *(planned healthcare appointment)* | X |  |  |  | Keep | Has a location, date, time and estimated finishing time, and can be changed by the provider independently of the journey. |
+| Journey *(journeys, individual journeys)* | X |  |  |  | Keep | The trip for one request, made up of an outward and a return stage ([FR08](../requirements/01-functional-requirements.md#FR08)). |
+| Journey stage *(outward stage, return stage, return journey, outward and return arrangements)* | X |  |  |  | Keep, merge outward and return | Each stage has its own driver, collection window and status ([FR08](../requirements/01-functional-requirements.md#FR08), [A05](05-assumptions.md#A05)). |
+| Driver *(trained volunteer drivers, employed drivers)* | X |  | X |  | Keep, merge driver kinds as a type | Stored record of availability, preferences and authorisation ([FR06](../requirements/01-functional-requirements.md#FR06), [FR12](../requirements/01-functional-requirements.md#FR12)), and the actor who records progress ([UC06](07-use-case-model.md#UC06)). |
+| Vehicle *(own cars, accessible vehicles)* | X |  |  |  | Keep, merge vehicle kinds as a type | Capacity is checked on assignment ([FR05](../requirements/01-functional-requirements.md#FR05)), accessible vehicles need an authorised driver ([FR06](../requirements/01-functional-requirements.md#FR06)). |
+| Contact attempt *(unsuccessful contacts)* | X |  |  |  | Keep | Many per journey, each with date, time and outcome ([FR07](../requirements/01-functional-requirements.md#FR07)). |
+| Change record *(changes)* | X |  |  |  | Keep | Many per request, each with old value, new value, date and user ([FR03](../requirements/01-functional-requirements.md#FR03)). |
+| Cancellation | X |  |  |  | Keep | Who cancelled, reason, notice given and whether the provider caused it ([FR11](../requirements/01-functional-requirements.md#FR11)). |
+| Unavailability period *(driver availability)* | X |  |  |  | Keep | A driver unavailable from one date to another, with a reason ([FR12](../requirements/01-functional-requirements.md#FR12)). |
 | **Attributes and values** | | | | | | |
 | Appointment details: *appointment location, appointment date, appointment time(s), estimated duration, expected finishing time(s)* | | X | | | Convert to attributes of Appointment | Attributes of Appointment. Estimated duration and finishing time are merged, an estimate is accepted ([A02](05-assumptions.md#A02)). |
 | Request details: *collection address, agreed address, notes* | | X | | | Convert to attributes of TransportRequest | Attributes of Transport request, clinical text can be removed from notes ([FR14](../requirements/01-functional-requirements.md#FR14)). |
@@ -32,9 +32,9 @@ The table below shows the candidates that remain in the model. The remaining can
 | Unavailability reasons: *illness, vehicle problems, severe weather* | | X | | | Convert to values of UnavailabilityPeriod reason | Values of the reason on Unavailability period. |
 | Different driver | | X | | | Convert to an association | A relationship, not a concept: each Journey stage has its own Driver. |
 | **Actors** | | | | | | |
-| Office staff *(staff)* | | | X | Keep as actor, not a class | | Primary actor ([UC01](07-use-case-model.md#UC01), [UC07](07-use-case-model.md#UC07)). |
-| Coordinator | | | X | Keep as actor, not a class | | Primary actor ([UC03](07-use-case-model.md#UC03), [UC09](07-use-case-model.md#UC09)). |
-| Referrer *(referring organisations, local support organisation)* | | | X | Keep as offstage actor, not modelled | | Offstage actor. Storing referrer details is deferred ([DFR01](../requirements/03-deferred-requirements.md#DFR01)). |
+| Office staff *(staff)* |  |  | X |  | Keep as actor, not a class | Primary actor ([UC01](07-use-case-model.md#UC01), [UC07](07-use-case-model.md#UC07)). |
+| Coordinator |  |  | X |  | Keep as actor, not a class | Primary actor ([UC03](07-use-case-model.md#UC03), [UC09](07-use-case-model.md#UC09)). |
+| Referrer *(referring organisations, local support organisation)* |  |  | X |  | Keep as offstage actor, not modelled | Offstage actor. Storing referrer details is deferred ([DFR01](../requirements/03-deferred-requirements.md#DFR01)). |
 | **Operations and events** | | | | | | |
 | Driver assignment *(allocation)* | | | | X | Convert to associations | The act of assigning ([UC03](07-use-case-model.md#UC03)), recorded as the link between Journey stage, Driver and Vehicle. |
 | Several calls | | | | X | Convert to ContactAttempt | Each call is recorded as a Contact attempt ([UC04](07-use-case-model.md#UC04)). |
@@ -73,21 +73,21 @@ The glossary fixes one preferred term for each concept, actor and key value and 
 | Change record | Concept | One recorded change to a request: the field, old and new value, when and by whom. | changes |
 | Clinical information | Value (excluded) | Any diagnosis, medical history or clinical detail. Not required by the service and removed when received ([FR14](../requirements/01-functional-requirements.md#FR14)). | clinical diagnosis, medical history |
 | Collection window | Value | The period within which the passenger will be collected, given instead of an exact time. | exact collection time (rejected) |
-| Confirmation | Output | The information given to a passenger once a journey is arranged, produced from stored data, not stored itself. | – |
+| Confirmation | Output | The information given to a passenger once a journey is arranged, produced from stored data, not stored itself. | None |
 | Contact attempt | Concept | One call to one driver about one journey stage, and its outcome: accepted, declined or no answer. | unsuccessful contacts, several calls |
 | Contact person | Concept | The person staff contact about a request: the passenger or someone acting for them. | contact, family member |
-| Coordinator | Actor | The staff member who allocates drivers and vehicles and oversees journeys. | – |
+| Coordinator | Actor | The staff member who allocates drivers and vehicles and oversees journeys. | None |
 | Driver | Concept and actor | A person who may be assigned journey stages, of type volunteer (own car) or employed (accessible vehicle). | trained volunteer driver, employed driver |
 | Funder report | Output | An anonymised summary of service use for a date range, produced on demand, not stored. | summary reports |
 | Journey | Concept | The arranged trip that fulfils one transport request, made up of an outward and usually a return stage. | individual journey |
 | Journey stage | Concept | The outward or return part of a journey, each with its own driver, vehicle, collection window and status. | outward stage, return stage, return journey |
-| Mandatory details | Value | The request details that must be present before allocation ([A01](05-assumptions.md#A01)). | – |
+| Mandatory details | Value | The request details that must be present before allocation ([A01](05-assumptions.md#A01)). | None |
 | Office staff | Actor | Staff who take requests, contact drivers, confirm journeys and record changes. | staff |
-| Outstanding | Status value | A journey stage that is not yet assigned, typically a return whose time is uncertain. | – |
+| Outstanding | Status value | A journey stage that is not yet assigned, typically a return whose time is uncertain. | None |
 | Passenger | Concept | An eligible resident who travels to healthcare appointments using the service. | resident, regular passenger, new passenger |
-| Provider-caused | Value | A cancellation or change caused by the healthcare provider rather than the passenger, not counted against the passenger ([BR09](06-rules-and-uncertainty-register.md#BR09)). | – |
+| Provider-caused | Value | A cancellation or change caused by the healthcare provider rather than the passenger, not counted against the passenger ([BR09](06-rules-and-uncertainty-register.md#BR09)). | None |
 | Provisional assignment | Status value (unresolved) | An assignment awaiting confirmation, whether it reserves the driver or vehicle is unresolved ([Q03](04-stakeholder-questions.md#Q03)). | provisional journey |
-| Ready for allocation | Status value | A request whose mandatory details are all present ([BR03](06-rules-and-uncertainty-register.md#BR03)). | – |
+| Ready for allocation | Status value | A request whose mandatory details are all present ([BR03](06-rules-and-uncertainty-register.md#BR03)). | None |
 | Referrer | Actor (offstage) | A person or organisation that asks for transport on a passenger's behalf. | referring organisation, local support organisation |
 | Return arrangement | Value | Whether the driver will wait, come back later or be replaced by another driver for the return. | expected arrangements |
 | Transport request | Concept | A request for transport to one appointment, with the passenger's travel needs. | request |

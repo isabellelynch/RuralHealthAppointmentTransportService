@@ -14,7 +14,7 @@ Shields, A. (2026) *Object Oriented Analysis and Design SAAD71000*. Lecture note
 <!-- Books and Papers -->
 
 <a id="abbott"></a>
-Abbott, R.J. (1983) 'Program design by informal English descriptions', *Communications of the ACM*, 26(11), pp. 882–894.
+Abbott, R.J. (1983) 'Program design by informal English descriptions', *Communications of the ACM*, 26(11), pp. 882-894.
 
 <a id="clegg"></a>
 Clegg, D. and Barker, R. (1994) *Case Method Fast-Track: A RAD Approach*. Wokingham: Addison-Wesley.
@@ -26,7 +26,7 @@ Cockburn, A. (2001) *Writing Effective Use Cases*. Boston, MA: Addison-Wesley.
 Cohn, M. (2004) *User Stories Applied: For Agile Software Development*. Boston, MA: Addison-Wesley.
 
 <a id="gotel"></a>
-Gotel, O.C.Z. and Finkelstein, A.C.W. (1994) 'An analysis of the requirements traceability problem', in *Proceedings of the First International Conference on Requirements Engineering*. Colorado Springs, CO: IEEE, pp. 94–101.
+Gotel, O.C.Z. and Finkelstein, A.C.W. (1994) 'An analysis of the requirements traceability problem', in *Proceedings of the First International Conference on Requirements Engineering*. Colorado Springs, CO: IEEE, pp. 94-101.
 
 <a id="babok"></a>
 IIBA (2015) *A Guide to the Business Analysis Body of Knowledge (BABOK Guide)*. 3rd edn. Toronto: International Institute of Business Analysis.
@@ -49,7 +49,7 @@ Wynne, M. and Hellesøy, A. (2012) *The Cucumber Book: Behaviour-Driven Developm
 <!-- Policies and Guidelines -->
 
 <a id="gdpr"></a>
-European Parliament and Council of the European Union (2016) *Regulation (EU) 2016/679 (General Data Protection Regulation)*. Official Journal of the European Union, L 119, 4 May, pp. 1–88.
+European Parliament and Council of the European Union (2016) *Regulation (EU) 2016/679 (General Data Protection Regulation)*. Official Journal of the European Union, L 119, 4 May, pp. 1-88.
 
 <a id="dpa2018"></a>
 Ireland (2018) *Data Protection Act 2018* (No. 7 of 2018). Dublin: Stationery Office.

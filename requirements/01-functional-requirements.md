@@ -13,6 +13,8 @@ The requirements below cover the core coordination workflow for the first releas
 | Could | A convenience or efficiency gain. | Deferred, for example shared journeys ([DFR08](03-deferred-requirements.md#DFR08)). |
 | Won't (this release) | Depends on an unresolved policy or is outside the service. | [Deferred requirements](03-deferred-requirements.md) and [out-of-scope items](../report/02-purpose-and-scope.md#out-of-scope). |
 
+Eleven of the fourteen functional requirements are Must. This is deliberate: anything that was only Could or Should and depended on an unresolved policy was moved to the [deferred requirements](03-deferred-requirements.md), so the first release was cut back to the minimum that meets the desired outcomes, the business rules and the legal constraints. FR07 and FR11 remain Should because staff can coordinate journeys without them for a short time.
+
 There are fourteen functional requirements, slightly above the eight to twelve suggested, because funder reporting and clinical-information removal were brought forward to meet explicit obligations ([D02](../decisions/decision-log.md#D02)).
 
 | ID | Requirement | Priority | Source / rationale | Assumptions / questions | Verification |

@@ -6,11 +6,11 @@ This file is the authoritative record of the CA1 user stories. Each story gives 
 
 | ID | Title | Priority | Actor | Use case | Requirements | Gherkin feature |
 |----|-------|----------|-------|----------|--------------|--------------|
-| [US01](#US01) | Block incomplete requests | Must | Office staff | [UC01](../report/07-use-case-model.md#UC01) | [FR02](01-functional-requirements.md#FR02) | – (requirement tests) |
-| [US02](#US02) | Reject unsuitable vehicles | Must | Coordinator | [UC03](../report/07-use-case-model.md#UC03) | [FR05](01-functional-requirements.md#FR05) | – (requirement tests) |
+| [US01](#US01) | Block incomplete requests | Must | Office staff | [UC01](../report/07-use-case-model.md#UC01) | [FR02](01-functional-requirements.md#FR02) | None (requirement tests) |
+| [US02](#US02) | Reject unsuitable vehicles | Must | Coordinator | [UC03](../report/07-use-case-model.md#UC03) | [FR05](01-functional-requirements.md#FR05) | None (requirement tests) |
 | [US03](#US03) | Separate return driver | Must | Coordinator | [UC03](../report/07-use-case-model.md#UC03) | [FR08](01-functional-requirements.md#FR08), [FR09](01-functional-requirements.md#FR09) | [US03-return-driver.feature](../features/US03-return-driver.feature) |
-| [US04](#US04) | Record progress without signal | Must | Driver | [UC06](../report/07-use-case-model.md#UC06) | [FR10](01-functional-requirements.md#FR10), [NFR03](02-non-functional-requirements.md#NFR03) | – (requirement tests) |
-| [US05](#US05) | Record provider-caused cancellations | Should | Office staff | [UC07](../report/07-use-case-model.md#UC07) | [FR11](01-functional-requirements.md#FR11) | – (requirement tests) |
+| [US04](#US04) | Record progress without signal | Must | Driver | [UC06](../report/07-use-case-model.md#UC06) | [FR10](01-functional-requirements.md#FR10), [NFR03](02-non-functional-requirements.md#NFR03) | None (requirement tests) |
+| [US05](#US05) | Record provider-caused cancellations | Should | Office staff | [UC07](../report/07-use-case-model.md#UC07) | [FR11](01-functional-requirements.md#FR11) | None (requirement tests) |
 
 Each story takes the priority of its main requirement.
 
@@ -71,7 +71,7 @@ Each story takes the priority of its main requirement.
 | | |
 |---|---|
 | **Business value** | Passengers are not left unsure how they will get home and staff can change one stage without confusing the other. Serves [G02](../report/03-stakeholder-and-actor-catalogue.md#G02) (coordinator) and [G07](../report/03-stakeholder-and-actor-catalogue.md#G07) (passenger), addresses problem [P07](../report/01-scenario-interpretation.md#P07). |
-| **Related** | [FR08](01-functional-requirements.md#FR08), [FR09](01-functional-requirements.md#FR09), [UC03](../report/07-use-case-model.md#UC03) alternatives 6a and 6b, [UC05](../report/07-use-case-model.md#UC05) |
+| **Related** | [FR08](01-functional-requirements.md#FR08), [FR09](01-functional-requirements.md#FR09), [FR05](01-functional-requirements.md#FR05), [UC03](../report/07-use-case-model.md#UC03) alternatives 6a and 6b, exception 4a, [UC05](../report/07-use-case-model.md#UC05) |
 | **Priority** | Must |
 | **Scenario evidence** | Coordinator: "the finishing time may be little more than a guess." Passenger: "Please tell me whether the driver is waiting or coming back later." |
 
@@ -79,10 +79,11 @@ Each story takes the priority of its main requirement.
 
 | ID | Criterion | Verified by |
 |----|-----------|-----------|
-| US03-AC1 | The outward and return stages each have their own driver and status. | `@US03-S1`, `@US03-S3` |
+| US03-AC1 | The outward and return stages each have their own driver and status. | `@US03-S1` |
 | US03-AC2 | Changing the return driver does not change the outward stage. | `@US03-S2` |
-| US03-AC3 | The return stage can be saved without a driver and assigned later. | `@US03-S4`, `@US03-S5` |
-| US03-AC4 | The passenger confirmation says how the passenger will get home. | `@US03-S6` |
+| US03-AC3 | The return stage can be saved without a driver and assigned later. | `@US03-S3` |
+| US03-AC4 | A vehicle that does not meet the passenger's needs is rejected for the return stage, which stays outstanding. | `@US03-S4` |
+| US03-AC5 | The passenger confirmation says how the passenger will get home. | `@US03-S5` |
 
 **Assumptions, questions and dependencies:** outward and return are two linked stages of one journey ([A05](../report/05-assumptions.md#A05), [Q04](../report/04-stakeholder-questions.md#Q04)).
 
@@ -109,7 +110,7 @@ Each story takes the priority of its main requirement.
 | US04-AC4 | A driver without a smartphone can have progress recorded by office staff on their behalf. | Demonstration: [FR10](01-functional-requirements.md#FR10) |
 | US04-AC5 | A driver cannot record progress on a stage assigned to someone else. | Test: [NFR01](02-non-functional-requirements.md#NFR01) |
 
-**Assumptions, questions and dependencies:** the 8-hour and 60-second figures are temporary ([A13](../report/05-assumptions.md#A13), [Q11](../report/04-stakeholder-questions.md#Q11)); device ownership is assumed ([A08](../report/05-assumptions.md#A08), [Q14](../report/04-stakeholder-questions.md#Q14)). Recording exceptions such as a passenger not ready is deferred ([DFR12](03-deferred-requirements.md#DFR12)).
+**Assumptions, questions and dependencies:** the 8-hour and 60-second figures are temporary ([A13](../report/05-assumptions.md#A13), [Q11](../report/04-stakeholder-questions.md#Q11)). Device ownership is assumed ([A08](../report/05-assumptions.md#A08), [Q14](../report/04-stakeholder-questions.md#Q14)). Recording exceptions such as a passenger not ready is deferred ([DFR12](03-deferred-requirements.md#DFR12)).
 
 ---
 

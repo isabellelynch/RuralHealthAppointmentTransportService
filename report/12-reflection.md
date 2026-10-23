@@ -8,7 +8,7 @@ In the domain model, I first expected to record a cancellation as a status on th
 
 ## Limitations
 
-Every non-functional target is an assumption (A11–A16). If drivers are out of coverage for longer than eight hours, NFR03 is wrong, and so is the boundary scenario US04-S5. Four Must requirements (FR06, FR12, FR13, FR14) have tests but no Gherkin examples. A final consistency review also found places where my text and diagrams disagreed, which I corrected before submission.
+Every non-functional target is an assumption (A11 to A16). If drivers are out of coverage for longer than eight hours, NFR03 is wrong, and so is acceptance criterion US04-AC3. Gherkin examples cover only US03 (FR05, FR08 and FR09). The other Must requirements rely on the tests stated in the requirements catalogue, which is weaker evidence for rules such as FR02 and FR06. A final consistency review also found places where my text and diagrams disagreed, which I corrected before submission.
 
 ## Unresolved questions
 

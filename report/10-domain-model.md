@@ -1,6 +1,6 @@
 # Domain Model
 
-A domain model shows the concepts of the real-world problem, their essential attributes and the associations between them that must be remembered ([Larman, 2004](../references/01-text-sources.md#larman), ch. 9). It is created during analysis and is not a design class diagram: it has no methods, visibility, navigability, typed fields, foreign keys, collections, controllers, screens or database structures. This model is built from the conceptual classes retained in the [candidate concept analysis](09-candidate-concept-analysis.md), following the lab workflow: review the retained concepts, select those needed by the [functional requirements](../requirements/01-functional-requirements.md) and [use cases](07-use-case-model.md), describe them with essential attributes, connect them with named associations, quantify each end, validate transactions and history and review the result. Where the scenario leaves a matter unresolved, the model records it in a note rather than inventing a policy.
+A domain model shows the concepts of the real-world problem, their essential attributes and the associations between them that must be remembered ([Larman, 2004](../references/01-text-sources.md#larman), ch. 9). It is an analysis model, so it has no methods, navigability, typed fields, foreign keys, controllers, screens or database structures. This model is built from the conceptual classes retained in the [candidate concept analysis](09-candidate-concept-analysis.md) and checked against the [functional requirements](../requirements/01-functional-requirements.md) and [use cases](07-use-case-model.md). Where the scenario leaves a matter unresolved, the model records it in a note rather than inventing a policy.
 
 ## Review and Select
 
@@ -10,7 +10,7 @@ All twelve conceptual classes from the [candidate concept analysis](09-candidate
 |---|---|---|
 | Passenger | A resident who travels to planned healthcare appointments using the service. | [FR01](../requirements/01-functional-requirements.md#FR01) |
 | ContactPerson | The person staff contact about a request: the passenger or a family member. | [FR01](../requirements/01-functional-requirements.md#FR01) |
-| TransportRequest | A request for transport to one appointment, with the passenger's travel needs. | [FR01](../requirements/01-functional-requirements.md#FR01)–[FR04](../requirements/01-functional-requirements.md#FR04), [FR14](../requirements/01-functional-requirements.md#FR14) |
+| TransportRequest | A request for transport to one appointment, with the passenger's travel needs. | [FR01](../requirements/01-functional-requirements.md#FR01) to [FR04](../requirements/01-functional-requirements.md#FR04), [FR14](../requirements/01-functional-requirements.md#FR14) |
 | Appointment | The planned healthcare appointment the passenger must attend. | [FR01](../requirements/01-functional-requirements.md#FR01) |
 | Journey | The arranged trip that fulfils one request. | [FR08](../requirements/01-functional-requirements.md#FR08), [FR09](../requirements/01-functional-requirements.md#FR09) |
 | JourneyStage | The outward or return part of a journey, with its own driver, vehicle and status. | [FR08](../requirements/01-functional-requirements.md#FR08), [FR10](../requirements/01-functional-requirements.md#FR10) |
@@ -30,32 +30,32 @@ Each candidate attribute was checked: is it a simple value meaningful to stakeho
 | Passenger | name, homeAddress, phone | Keep | Needed to identify and contact the passenger ([FR01](../requirements/01-functional-requirements.md#FR01)). |
 | | passengerId | Remove | An identifier is an implementation detail. |
 | | diagnosis | Remove | Clinical data must not be held ([C07](06-rules-and-uncertainty-register.md#C07)). |
-| | eligibilityStatus | Remove | Eligibility is deferred; the policy is unresolved ([Q01](04-stakeholder-questions.md#Q01)). |
+| | eligibilityStatus | Remove | Eligibility is deferred. The policy is unresolved ([Q01](04-stakeholder-questions.md#Q01)). |
 | ContactPerson | name, phone, relationshipToPassenger | Keep | Requests may name a family member as contact ([FR01](../requirements/01-functional-requirements.md#FR01)). |
-| TransportRequest | collectionAddress, notes, status | Keep | Collection may differ from home; status shows whether the request is ready ([FR02](../requirements/01-functional-requirements.md#FR02)); notes can be cleaned of clinical text ([FR14](../requirements/01-functional-requirements.md#FR14)). |
+| TransportRequest | collectionAddress, notes, status | Keep | Collection may differ from home. Status shows whether the request is ready ([FR02](../requirements/01-functional-requirements.md#FR02)). Notes can be cleaned of clinical text ([FR14](../requirements/01-functional-requirements.md#FR14)). |
 | | wheelchairSpacesNeeded, companionSeatsNeeded, boardingAssistance, walkingAid, agreesToShare | Keep | Practical travel needs ([FR04](../requirements/01-functional-requirements.md#FR04)), compared with vehicle capacity ([FR05](../requirements/01-functional-requirements.md#FR05)). |
-| | passengerId | Remove | A foreign key; replaced by the *makes* association. |
+| | passengerId | Remove | A foreign key. Replaced by the *makes* association. |
 | | requestChannel | Remove | Deferred ([DFR01](../requirements/03-deferred-requirements.md#DFR01)). |
-| Appointment | location, appointmentDate, appointmentTime, estimatedFinishTime | Keep | Mandatory request details; an estimate is accepted ([A01](05-assumptions.md#A01), [A02](05-assumptions.md#A02)). |
+| Appointment | location, appointmentDate, appointmentTime, estimatedFinishTime | Keep | Mandatory request details. An estimate is accepted ([A01](05-assumptions.md#A01), [A02](05-assumptions.md#A02)). |
 | | clinicalReason | Remove | Out of scope ([C01](06-rules-and-uncertainty-register.md#C01)). |
 | Journey | status, returnArrangement, travelContribution | Keep | Shown on the passenger confirmation, including whether the driver waits or returns ([FR09](../requirements/01-functional-requirements.md#FR09)). |
 | | paymentReceived | Remove | Payment processing is out of scope. |
-| | stages (list) | Remove | A collection; replaced by the *is made up of* association. |
-| JourneyStage | direction, collectionWindowStart, collectionWindowEnd, status | Keep | Outward and return are recorded separately ([FR08](../requirements/01-functional-requirements.md#FR08)); collection is given as a window. |
+| | stages (list) | Remove | A collection. Replaced by the *is made up of* association. |
+| JourneyStage | direction, collectionWindowStart, collectionWindowEnd, status | Keep | Outward and return are recorded separately ([FR08](../requirements/01-functional-requirements.md#FR08)). Collection is given as a window. |
 | | collectedAt, arrivedAt, completedAt | Keep | Progress recorded by the driver ([FR10](../requirements/01-functional-requirements.md#FR10)). |
-| | waitingTime | Remove | No waiting policy agreed; deferred ([Q05](04-stakeholder-questions.md#Q05), [DFR12](../requirements/03-deferred-requirements.md#DFR12)). |
+| | waitingTime | Remove | No waiting policy agreed. Deferred ([Q05](04-stakeholder-questions.md#Q05), [DFR12](../requirements/03-deferred-requirements.md#DFR12)). |
 | | gpsLocation | Remove | Live tracking is out of scope. |
-| Driver | name, phone, driverType, generalAvailability, preferredAreas, drivesAfterDark, accessibleAuthorised | Keep | Used when choosing a driver; authorisation is a yes/no value ([FR06](../requirements/01-functional-requirements.md#FR06), [A04](05-assumptions.md#A04)). |
+| Driver | name, phone, driverType, generalAvailability, preferredAreas, drivesAfterDark, accessibleAuthorised | Keep | Used when choosing a driver. Authorisation is a yes/no value ([FR06](../requirements/01-functional-requirements.md#FR06), [A04](05-assumptions.md#A04)). |
 | | isAvailable() | Remove | An operation, not an attribute. Availability is found from UnavailabilityPeriod. |
 | | trainingRecord | Remove | Driver training is out of scope. |
-| Vehicle | registration, vehicleType, passengerSeats, wheelchairSpaces, companionSeats | Keep | Capacity is checked against needs ([FR05](../requirements/01-functional-requirements.md#FR05)); type decides whether authorisation is needed ([FR06](../requirements/01-functional-requirements.md#FR06)). |
-| | ownerId | Remove | A foreign key; replaced by the *supplies* association. |
+| Vehicle | registration, vehicleType, passengerSeats, wheelchairSpaces, companionSeats | Keep | Capacity is checked against needs ([FR05](../requirements/01-functional-requirements.md#FR05)). Type decides whether authorisation is needed ([FR06](../requirements/01-functional-requirements.md#FR06)). |
+| | ownerId | Remove | A foreign key. Replaced by the *supplies* association. |
 | | maintenanceDue | Remove | Vehicle maintenance is out of scope. |
 | ContactAttempt | attemptDateTime, outcome | Keep | Each call and its result: accepted, declined or no answer ([FR07](../requirements/01-functional-requirements.md#FR07)). |
-| ChangeRecord | changedField, oldValue, newValue, changedAt, changedBy | Keep | Change history ([FR03](../requirements/01-functional-requirements.md#FR03)). changedBy is a name; staff are actors, not stored concepts. |
-| Cancellation | cancelledBy, reason, cancelledAt, noticeGiven, providerCaused | Keep | All values required by [FR11](../requirements/01-functional-requirements.md#FR11); providerCaused supports [BR09](06-rules-and-uncertainty-register.md#BR09). |
+| ChangeRecord | changedField, oldValue, newValue, changedAt, changedBy | Keep | Change history ([FR03](../requirements/01-functional-requirements.md#FR03)). changedBy is a name. Staff are actors, not stored concepts. |
+| Cancellation | cancelledBy, reason, cancelledAt, noticeGiven, providerCaused | Keep | All values required by [FR11](../requirements/01-functional-requirements.md#FR11). ProviderCaused supports [BR09](06-rules-and-uncertainty-register.md#BR09). |
 | | isLate | Remove | Derived from noticeGiven, and no "late" threshold is defined in the scenario. |
-| UnavailabilityPeriod | startDate, endDate, reason | Keep | Finds affected journeys ([FR12](../requirements/01-functional-requirements.md#FR12)); reason covers illness, vehicle problems or weather. |
+| UnavailabilityPeriod | startDate, endDate, reason | Keep | Finds affected journeys ([FR12](../requirements/01-functional-requirements.md#FR12)). Reason covers illness, vehicle problems or weather. |
 
 ## Associations
 
@@ -64,7 +64,7 @@ Seventeen candidate associations were considered. Each was tested: must it be re
 | Class A | Association | Class B | Evidence | Keep? |
 |---|---|---|---|---|
 | Passenger | makes | TransportRequest | [FR01](../requirements/01-functional-requirements.md#FR01) | Yes |
-| TransportRequest | names as contact | ContactPerson | [FR01](../requirements/01-functional-requirements.md#FR01); requests may name a family member | Yes |
+| TransportRequest | names as contact | ContactPerson | [FR01](../requirements/01-functional-requirements.md#FR01). Requests may name a family member | Yes |
 | TransportRequest | is for | Appointment | [FR01](../requirements/01-functional-requirements.md#FR01) | Yes |
 | TransportRequest | is fulfilled by | Journey | [FR02](../requirements/01-functional-requirements.md#FR02), [UC03](07-use-case-model.md#UC03) | Yes |
 | TransportRequest | has history of | ChangeRecord | [FR03](../requirements/01-functional-requirements.md#FR03) | Yes |
@@ -77,8 +77,8 @@ Seventeen candidate associations were considered. Each was tested: must it be re
 | Cancellation | cancels | JourneyStage | [FR11](../requirements/01-functional-requirements.md#FR11), [UC07](07-use-case-model.md#UC07) | Yes |
 | Driver | is unavailable during | UnavailabilityPeriod | [FR12](../requirements/01-functional-requirements.md#FR12) | Yes |
 | Passenger | attends | Appointment | Duplicates Passenger → TransportRequest → Appointment | No |
-| Passenger | is driven by | Driver | Derived through the journey stages; adds nothing | No |
-| Driver | is authorised for | Vehicle | Authorisation is a yes/no value on Driver ([A04](05-assumptions.md#A04)); may become an association if authorisation is per vehicle ([Q18](04-stakeholder-questions.md#Q18)) | No |
+| Passenger | is driven by | Driver | Derived through the journey stages. Adds nothing | No |
+| Driver | is authorised for | Vehicle | Authorisation is a yes/no value on Driver ([A04](05-assumptions.md#A04)). May become an association if authorisation is per vehicle ([Q18](04-stakeholder-questions.md#Q18)) | No |
 | Referrer | refers | TransportRequest | Storing referrer details is deferred ([DFR01](../requirements/03-deferred-requirements.md#DFR01)) | No |
 
 ## Multiplicities
@@ -87,7 +87,7 @@ Each end is read separately: the value beside Class A is read from the point of 
 
 | Association | At Class A | At Class B | Reading from both ends | Evidence / rule |
 |---|:-:|:-:|---|---|
-| Passenger makes TransportRequest | 1 | 0..* | Each request is made for exactly one passenger. A passenger may make no requests yet, or many over time. | [FR01](../requirements/01-functional-requirements.md#FR01); regular passengers travel often. |
+| Passenger makes TransportRequest | 1 | 0..* | Each request is made for exactly one passenger. A passenger may make no requests yet, or many over time. | [FR01](../requirements/01-functional-requirements.md#FR01). Regular passengers travel often. |
 | TransportRequest names as contact ContactPerson | 0..* | 1 | Each request names exactly one contact. A contact may be named on many requests. | [FR01](../requirements/01-functional-requirements.md#FR01), [A01](05-assumptions.md#A01) |
 | TransportRequest is for Appointment | 1 | 1 | Each request is for exactly one appointment, and each recorded appointment belongs to exactly one request. | [FR01](../requirements/01-functional-requirements.md#FR01) |
 | TransportRequest is fulfilled by Journey | 1 | 0..1 | Each journey fulfils exactly one request. A request has no journey until it is allocated, then at most one. | [FR02](../requirements/01-functional-requirements.md#FR02), [BR03](06-rules-and-uncertainty-register.md#BR03) |
@@ -95,10 +95,10 @@ Each end is read separately: the value beside Class A is read from the point of 
 | Journey is made up of JourneyStage | 1 | 1..2 | Each stage belongs to exactly one journey. A journey has an outward stage and, unless not needed, a return stage. | [FR08](../requirements/01-functional-requirements.md#FR08), [A05](05-assumptions.md#A05) |
 | JourneyStage is driven by Driver | 0..* | 0..1 | A driver may drive no stages or many. A stage has no driver while it is outstanding, then at most one. | [UC03](07-use-case-model.md#UC03) alternative 6a |
 | JourneyStage uses Vehicle | 0..* | 0..1 | A vehicle may be used on many stages. A stage has no vehicle until assigned, then at most one. | [UC03](07-use-case-model.md#UC03) |
-| Driver supplies Vehicle | 0..1 | 0..* | An own car is supplied by one volunteer; an accessible vehicle is supplied by no driver. A driver may supply no vehicles or several. | *Organisation and current service*; [C04](06-rules-and-uncertainty-register.md#C04) |
+| Driver supplies Vehicle | 0..1 | 0..* | An own car is supplied by one volunteer. An accessible vehicle is supplied by no driver. A driver may supply no vehicles or several. | *Organisation and current service*. [C04](06-rules-and-uncertainty-register.md#C04) |
 | Driver is contacted in ContactAttempt | 1 | 0..* | Each attempt is a call to exactly one driver. A driver may be contacted many times. | [FR07](../requirements/01-functional-requirements.md#FR07) |
-| ContactAttempt is about JourneyStage | 0..* | 1 | Each attempt is about exactly one stage. A stage may need no calls or many before a driver accepts. | [FR07](../requirements/01-functional-requirements.md#FR07); office staff evidence |
-| Cancellation cancels JourneyStage | 0..1 | 1..* | Each stage is cancelled at most once. A cancellation covers one stage or both. | [FR11](../requirements/01-functional-requirements.md#FR11), [UC07](07-use-case-model.md#UC07); a stage may be cancelled on its own ([US05](../requirements/04-user-story-backlog.md#US05)) |
+| ContactAttempt is about JourneyStage | 0..* | 1 | Each attempt is about exactly one stage. A stage may need no calls or many before a driver accepts. | [FR07](../requirements/01-functional-requirements.md#FR07). Office staff evidence |
+| Cancellation cancels JourneyStage | 0..1 | 1..* | Each stage is cancelled at most once. A cancellation covers one stage or both. | [FR11](../requirements/01-functional-requirements.md#FR11), [UC07](07-use-case-model.md#UC07). A stage may be cancelled on its own ([US05](../requirements/04-user-story-backlog.md#US05)) |
 | Driver is unavailable during UnavailabilityPeriod | 1 | 0..* | Each period belongs to exactly one driver. A driver may have no periods or many. | [FR12](../requirements/01-functional-requirements.md#FR12) |
 
 ## Transactions and Historical Records
