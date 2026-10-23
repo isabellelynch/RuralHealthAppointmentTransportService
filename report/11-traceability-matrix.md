@@ -58,23 +58,23 @@ Every Must requirement links to a problem, a stakeholder goal, a use case and a 
 
 | Req | Coordinator | Office staff | Volunteer driver | Employed driver | Passenger | Referrer | Funder |
 |-------|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| FR01 | ✓ | ✓ | | | ✓ | ✓ | |
-| FR02 | ✓ | ✓ | | | | ✓ | |
-| FR03 | ✓ | ✓ | | | | ✓ | |
-| FR04 | | ✓ | ✓ | ✓ | ✓ | | |
-| FR05 | ✓ | | | ✓ | ✓ | | |
-| FR06 | ✓ | | | ✓ | | | |
-| FR07 | ✓ | ✓ | ✓ | | | | |
-| FR08 | ✓ | | ✓ | ✓ | ✓ | | |
-| FR09 | | ✓ | | | ✓ | | |
-| FR10 | ✓ | | ✓ | ✓ | | | |
-| FR11 | ✓ | ✓ | | | ✓ | ✓ | |
-| FR12 | ✓ | ✓ | ✓ | ✓ | | | |
-| FR13 | ✓ | | | | ✓ | | ✓ |
-| FR14 | | ✓ | ✓ | ✓ | ✓ | ✓ | |
-| NFR01 | ✓ | | ✓ | ✓ | ✓ | | |
-| NFR02 | ✓ | ✓ | | | | | |
-| NFR03 | ✓ | | ✓ | ✓ | | | |
-| NFR04 | ✓ | ✓ | ✓ | ✓ | | | |
-| NFR05 | ✓ | ✓ | | | ✓ | | |
-| NFR06 | | ✓ | ✓ | ✓ | | | |
+| FR01 | X | X | | | X | X | |
+| FR02 | X | X | | | | X | |
+| FR03 | X | X | | | | X | |
+| FR04 | | X | X | X | X | | |
+| FR05 | X | | | X | X | | |
+| FR06 | X | | | X | | | |
+| FR07 | X | X | X | | | | |
+| FR08 | X | | X | X | X | | |
+| FR09 | | X | | | X | | |
+| FR10 | X | | X | X | | | |
+| FR11 | X | X | | | X | X | |
+| FR12 | X | X | X | X | | | |
+| FR13 | X | | | | X | | X |
+| FR14 | | X | X | X | X | X | |
+| NFR01 | X | | X | X | X | | |
+| NFR02 | X | X | | | | | |
+| NFR03 | X | | X | X | | | |
+| NFR04 | X | X | X | X | | | |
+| NFR05 | X | X | | | X | | |
+| NFR06 | | X | X | X | | | |
