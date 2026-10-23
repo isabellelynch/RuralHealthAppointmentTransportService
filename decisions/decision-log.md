@@ -21,7 +21,7 @@ Candidate concepts excluded from the domain model are recorded separately in [Re
 | [D09](#D09) | Write UC03 as the fully detailed use case | Use cases | 9 Oct | Accepted |
 | [D10](#D10) | Use one Driver role for volunteer and employed drivers | Use cases | 9 Oct | Accepted |
 | [D11](#D11) | Select five user stories with the strongest scenario evidence | User stories | 10 Oct | Accepted |
-| [D12](#D12) | One feature file per story, tagged for traceability, with illustrative test data | Gherkin | 11 Oct | Accepted |
+| [D12](#D12) | One feature file per story, tagged for traceability, with illustrative test data | Gherkin | 11 Oct | Superseded by [D24](#D24) |
 | [D13](#D13) | Do not assume a threshold for a "late" cancellation | Gherkin | 11 Oct | Accepted, pending [Q06](../report/04-stakeholder-questions.md#Q06) |
 | [D14](#D14) | Use noun-phrase analysis and keep rejected candidates in a separate record | Domain analysis | 12–15 Oct | Accepted |
 | [D15](#D15) | Model Appointment separately from TransportRequest | Domain model | 15 Oct | Accepted |
@@ -33,6 +33,7 @@ Candidate concepts excluded from the domain model are recorded separately in [Re
 | [D21](#D21) | Link contact attempts to a journey stage, not a whole journey | Domain model | 15 Oct | Accepted |
 | [D22](#D22) | Do not model confirmations or funder reports as classes | Domain model | 15 Oct | Accepted |
 | [D23](#D23) | Treat Driver as both an actor and a conceptual class | Domain model | 15 Oct | Accepted |
+| [D24](#D24) | Keep a single feature file, for US03 | Gherkin | 23 Oct | Accepted |
 
 ---
 
@@ -88,7 +89,7 @@ Candidate concepts excluded from the domain model are recorded separately in [Re
 - **Options considered:** Leave the targets vague until stakeholders answer; or set explicit temporary figures.
 - **Decision:** Set explicit figures, each recorded as an assumption ([A11](../report/05-assumptions.md#A11)–[A16](../report/05-assumptions.md#A16)) and linked to a stakeholder question ([Q09](../report/04-stakeholder-questions.md#Q09)–[Q13](../report/04-stakeholder-questions.md#Q13), [Q19](../report/04-stakeholder-questions.md#Q19)).
 - **Rationale:** A stated, testable figure can be confirmed or corrected; a vague word cannot be tested at all.
-- **Consequences:** Risk [R05](../report/06-rules-and-uncertainty-register.md#R05) that the targets are wrong. The figures also appear in the Gherkin scenarios (for example, the 8-hour boundary in US04), which will need updating if the answers differ.
+- **Consequences:** Risk [R05](../report/06-rules-and-uncertainty-register.md#R05) that the targets are wrong. The figures also appear in the user story acceptance criteria (for example, the 8-hour limit in US04-AC3), which will need updating if the answers differ.
 
 ## Stakeholders and use cases
 
@@ -135,6 +136,7 @@ Candidate concepts excluded from the domain model are recorded separately in [Re
 - **Date:** 11 October 2026 (commit `a5149d7`)
 - **Decision:** Each story has its own feature file in [`features/`](../features/). Each feature is tagged with its story, use case and requirement (for example `@US02 @UC03 @FR05`), each scenario has its own identifier (for example `@US02-S4`) referenced from the [user story backlog](../requirements/04-user-story-backlog.md), and scenarios are grouped under `Rule:` headings that state the business rule being tested. Names, vehicle capacities and times are illustrative test data, stated as such in each file.
 - **Rationale:** Tags make it possible to trace from a failing scenario back through the specification ([Wynne and Hellesøy, 2012](../references/01-text-sources.md#wynne)). The scenario does not give real fleet capacities, so invented data is labelled rather than presented as fact. Boundary cases (capacity equal to need, the 8-hour offline limit) were included because errors cluster at boundaries.
+- **Status:** Superseded by [D24](#D24). The tagging and `Rule:` conventions are kept in the remaining feature file.
 
 ### <a id="D13"></a>D13: Do not assume a threshold for a "late" cancellation
 
@@ -148,7 +150,7 @@ Candidate concepts excluded from the domain model are recorded separately in [Re
 ### <a id="D14"></a>D14: Use noun-phrase analysis and keep rejected candidates in a separate record
 
 - **Date:** 12–15 October 2026 (commits `670e231` to `4d9f80b`)
-- **Decision:** Identify candidate concepts by listing every noun phrase in the scenario ([Abbott, 1983](../references/01-text-sources.md#abbott); [Larman, 2004](../references/01-text-sources.md#larman)), merge synonyms under one preferred term, and classify each candidate. Retained candidates are shown in the [candidate concept analysis](../report/09-candidate-concept-analysis.md); excluded ones are listed with reasons in [09-rejected-candidates.md](09-rejected-candidates.md).
+- **Decision:** Identify candidate concepts by listing every noun phrase in the scenario ([Abbott, 1983](../references/01-text-sources.md#abbott); [Larman, 2004](../references/01-text-sources.md#larman)), merge synonyms under one preferred term, and classify each candidate. Retained candidates are shown in the [candidate concept analysis](../report/09-candidate-concept-analysis.md); excluded ones are listed with reasons in [rejected-candidates.md](rejected-candidates.md).
 - **Rationale:** Listing every noun shows nothing in the scenario was overlooked. Moving the roughly 50 exclusions out of the report keeps that section readable while still accounting for every candidate.
 
 ### <a id="D15"></a>D15: Model Appointment separately from TransportRequest
@@ -178,7 +180,7 @@ Candidate concepts excluded from the domain model are recorded separately in [Re
 - **Date:** 15 October 2026 (commit `648feec`)
 - **Options considered:** Represent a cancellation only as JourneyStage status "Cancelled"; or as its own concept.
 - **Decision:** Its own concept, while the stage status is still set to Cancelled for easy filtering.
-- **Rationale:** A status alone would lose who cancelled, the reason, the notice given and whether the provider caused it, which [FR11](../requirements/01-functional-requirements.md#FR11) and [BR09](../report/06-rules-and-uncertainty-register.md#BR09) depend on, and could not show one cancellation covering both stages. See [Task 4](../report/10-domain-model.md#task-4-transactions-and-historical-records).
+- **Rationale:** A status alone would lose who cancelled, the reason, the notice given and whether the provider caused it, which [FR11](../requirements/01-functional-requirements.md#FR11) and [BR09](../report/06-rules-and-uncertainty-register.md#BR09) depend on, and could not show one cancellation covering both stages. See [Transactions and Historical Records](../report/10-domain-model.md#transactions-and-historical-records).
 
 ### <a id="D19"></a>D19: Use type attributes instead of subclasses for drivers and vehicles
 
@@ -216,3 +218,13 @@ Candidate concepts excluded from the domain model are recorded separately in [Re
 - **Decision:** Both. The actor is the person interacting with the system; the class is the record kept about that person.
 - **Rationale:** [FR06](../requirements/01-functional-requirements.md#FR06) and [FR12](../requirements/01-functional-requirements.md#FR12) depend on stored driver data, which an actor alone cannot hold. Office staff and the coordinator are not classes, because nothing about them needs to be remembered beyond a name in a change record.
 
+## Later revisions
+
+### <a id="D24"></a>D24: Keep a single feature file, for US03
+
+- **Date:** 23 October 2026 (commit `09c3e21`)
+- **Context:** On re-reading the brief, only one Gherkin feature file is required. Feature files had been written for all five stories ([D12](#D12)).
+- **Options considered:** Keep all five feature files; or keep one and verify the other stories' acceptance criteria through the verification methods already stated for their requirements.
+- **Decision:** Keep [`US03-return-driver.feature`](../features/US03-return-driver.feature) and remove the other four. The acceptance criteria of US01, US02, US04 and US05 remain in the [user story backlog](../requirements/04-user-story-backlog.md), each linked to the requirement test that verifies it.
+- **Rationale:** US03 exercises the alternative flows of the detailed use case ([UC03](../report/07-use-case-model.md#UC03) 6a and 6b) and tests the decision to model outward and return as separate stages ([D16](#D16)), so it covers the most of the analysis in one file.
+- **Consequences:** Boundary cases previously shown in Gherkin (exact vehicle capacity, the 8-hour offline limit) are now covered only by the acceptance criteria and requirement tests. The removed files remain in the version history.

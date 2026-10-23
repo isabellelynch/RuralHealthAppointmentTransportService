@@ -56,7 +56,3 @@ Ireland (2018) *Data Protection Act 2018* (No. 7 of 2018). Dublin: Stationery Of
 
 <a id="wcag"></a>
 W3C (2023) *Web Content Accessibility Guidelines (WCAG) 2.2*. W3C Recommendation, 5 October.
-
-<a id="iso29148"></a>
-ISO/IEC/IEEE (2018) *ISO/IEC/IEEE 29148:2018 Systems and software engineering — Life cycle processes — Requirements engineering*. Geneva: International Organization for Standardization.
-

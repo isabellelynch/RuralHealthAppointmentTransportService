@@ -1,16 +1,16 @@
 # User Story Backlog
 
-This file is the authoritative record of the CA1 user stories. Each story gives a stakeholder-value view of one or more formal requirements, it does not replace the [requirements catalogue](01-functional-requirements.md) or the [use case model](../report/07-use-case-model.md). Acceptance criteria are stated here as observable conditions and each is illustrated by concrete Gherkin scenarios in [`features/`](../features/), identified by tags such as `@US02-S4` ([Cohn, 2004](../references/01-text-sources.md#cohn), [Wynne and Hellesøy, 2012](../references/01-text-sources.md#wynne)). The [user stories section](../report/08-gherkin-examples.md) of the report explains why these five stories were chosen.
+This file is the authoritative record of the CA1 user stories. Each story gives a stakeholder-value view of one or more formal requirements, it does not replace the [requirements catalogue](01-functional-requirements.md) or the [use case model](../report/07-use-case-model.md). Acceptance criteria are stated here as observable conditions ([Cohn, 2004](../references/01-text-sources.md#cohn)). The acceptance criteria of US03 are illustrated by concrete Gherkin scenarios in [`features/US03-return-driver.feature`](../features/US03-return-driver.feature), identified by tags such as `@US03-S4` ([Wynne and Hellesøy, 2012](../references/01-text-sources.md#wynne)). The acceptance criteria of the other stories are verified by the verification method stated for their requirement. The [user stories section](../report/08-gherkin-examples.md) of the report explains why these five stories were chosen.
 
 ## Summary
 
-| ID | Title | Priority | Actor | Use case | Requirements | Feature file |
+| ID | Title | Priority | Actor | Use case | Requirements | Gherkin feature |
 |----|-------|----------|-------|----------|--------------|--------------|
-| [US01](#US01) | Block incomplete requests | Must | Office staff | [UC01](../report/07-use-case-model.md#UC01) | [FR02](01-functional-requirements.md#FR02) | [US01-incomplete-requests.feature](../features/US01-incomplete-requests.feature) |
-| [US02](#US02) | Reject unsuitable vehicles | Must | Coordinator | [UC03](../report/07-use-case-model.md#UC03) | [FR05](01-functional-requirements.md#FR05) | [US02-vehicle-suitability.feature](../features/US02-vehicle-suitability.feature) |
+| [US01](#US01) | Block incomplete requests | Must | Office staff | [UC01](../report/07-use-case-model.md#UC01) | [FR02](01-functional-requirements.md#FR02) | – (requirement tests) |
+| [US02](#US02) | Reject unsuitable vehicles | Must | Coordinator | [UC03](../report/07-use-case-model.md#UC03) | [FR05](01-functional-requirements.md#FR05) | – (requirement tests) |
 | [US03](#US03) | Separate return driver | Must | Coordinator | [UC03](../report/07-use-case-model.md#UC03) | [FR08](01-functional-requirements.md#FR08), [FR09](01-functional-requirements.md#FR09) | [US03-return-driver.feature](../features/US03-return-driver.feature) |
-| [US04](#US04) | Record progress without signal | Must | Driver | [UC06](../report/07-use-case-model.md#UC06) | [FR10](01-functional-requirements.md#FR10), [NFR03](02-non-functional-requirements.md#NFR03) | [US04-offline-progress.feature](../features/US04-offline-progress.feature) |
-| [US05](#US05) | Record provider-caused cancellations | Should | Office staff | [UC07](../report/07-use-case-model.md#UC07) | [FR11](01-functional-requirements.md#FR11) | [US05-provider-cancellation.feature](../features/US05-provider-cancellation.feature) |
+| [US04](#US04) | Record progress without signal | Must | Driver | [UC06](../report/07-use-case-model.md#UC06) | [FR10](01-functional-requirements.md#FR10), [NFR03](02-non-functional-requirements.md#NFR03) | – (requirement tests) |
+| [US05](#US05) | Record provider-caused cancellations | Should | Office staff | [UC07](../report/07-use-case-model.md#UC07) | [FR11](01-functional-requirements.md#FR11) | – (requirement tests) |
 
 Each story takes the priority of its main requirement.
 
@@ -29,11 +29,11 @@ Each story takes the priority of its main requirement.
 
 **Acceptance criteria**
 
-| ID | Criterion | Scenarios |
+| ID | Criterion | Verified by |
 |----|-----------|-----------|
-| US01-AC1 | A request with every mandatory detail can be allocated. | `@US01-S1` |
-| US01-AC2 | A request missing any mandatory detail cannot be allocated and the missing detail is named. | `@US01-S2` |
-| US01-AC3 | An estimated finishing time counts as complete, an exact time is not required. | `@US01-S3` |
+| US01-AC1 | A request with every mandatory detail can be allocated. | Test: [FR02](01-functional-requirements.md#FR02) |
+| US01-AC2 | A request missing any mandatory detail cannot be allocated and the missing detail is named. | Test: [FR02](01-functional-requirements.md#FR02) |
+| US01-AC3 | An estimated finishing time counts as complete, an exact time is not required. | Test: [FR02](01-functional-requirements.md#FR02) |
 
 **Assumptions, questions and dependencies:** the list of mandatory details is temporary ([A01](../report/05-assumptions.md#A01), [A02](../report/05-assumptions.md#A02), [Q08](../report/04-stakeholder-questions.md#Q08)). Saving incomplete drafts is deferred ([DFR02](03-deferred-requirements.md#DFR02)).
 
@@ -52,13 +52,13 @@ Each story takes the priority of its main requirement.
 
 **Acceptance criteria**
 
-| ID | Criterion | Scenarios |
+| ID | Criterion | Verified by |
 |----|-----------|-----------|
-| US02-AC1 | A vehicle with fewer wheelchair spaces than the passenger needs is rejected, with the reason given. | `@US02-S1`, `@US02-S2`, `@US02-S6` |
-| US02-AC2 | A vehicle with fewer companion seats than the passenger needs is rejected, with the reason given. | `@US02-S3`, `@US02-S6` |
-| US02-AC3 | A vehicle whose capacity exactly equals the need is accepted. | `@US02-S4`, `@US02-S6` |
-| US02-AC4 | When both needs are unmet, both shortfalls are reported. | `@US02-S5` |
-| US02-AC5 | The same check applies to the return stage and a rejection leaves the other stage unchanged. | `@US02-S7` |
+| US02-AC1 | A vehicle with fewer wheelchair spaces than the passenger needs is rejected, with the reason given. | Test: [FR05](01-functional-requirements.md#FR05) |
+| US02-AC2 | A vehicle with fewer companion seats than the passenger needs is rejected, with the reason given. | Test: [FR05](01-functional-requirements.md#FR05) |
+| US02-AC3 | A vehicle whose capacity exactly equals the need is accepted. | Test: [FR05](01-functional-requirements.md#FR05) |
+| US02-AC4 | When both needs are unmet, both shortfalls are reported. | Test: [FR05](01-functional-requirements.md#FR05) |
+| US02-AC5 | The same check applies to the return stage and a rejection leaves the other stage unchanged. | Test: [FR05](01-functional-requirements.md#FR05), [FR08](01-functional-requirements.md#FR08) |
 
 **Assumptions, questions and dependencies:** vehicle capacities in the examples are illustrative, the scenario gives none. Rechecking after needs change ([DFR13](03-deferred-requirements.md#DFR13)) and double-booking ([DFR07](03-deferred-requirements.md#DFR07), [Q03](../report/04-stakeholder-questions.md#Q03)) are deferred.
 
@@ -77,7 +77,7 @@ Each story takes the priority of its main requirement.
 
 **Acceptance criteria**
 
-| ID | Criterion | Scenarios |
+| ID | Criterion | Verified by |
 |----|-----------|-----------|
 | US03-AC1 | The outward and return stages each have their own driver and status. | `@US03-S1`, `@US03-S3` |
 | US03-AC2 | Changing the return driver does not change the outward stage. | `@US03-S2` |
@@ -101,13 +101,13 @@ Each story takes the priority of its main requirement.
 
 **Acceptance criteria**
 
-| ID | Criterion | Scenarios |
+| ID | Criterion | Verified by |
 |----|-----------|-----------|
-| US04-AC1 | Progress recorded with a signal reaches the coordinator straight away. | `@US04-S1` |
-| US04-AC2 | Progress recorded without a signal is kept and reaches the coordinator within 60 seconds of a signal returning, with its original time. | `@US04-S2`, `@US04-S3`, `@US04-S4` |
-| US04-AC3 | Updates kept for up to 8 hours are not lost. | `@US04-S5` |
-| US04-AC4 | A driver without a smartphone can have progress recorded by office staff on their behalf. | `@US04-S6` |
-| US04-AC5 | A driver cannot record progress on a stage assigned to someone else. | `@US04-S7` |
+| US04-AC1 | Progress recorded with a signal reaches the coordinator straight away. | Demonstration: [FR10](01-functional-requirements.md#FR10) |
+| US04-AC2 | Progress recorded without a signal is kept and reaches the coordinator within 60 seconds of a signal returning, with its original time. | Test: [NFR03](02-non-functional-requirements.md#NFR03) |
+| US04-AC3 | Updates kept for up to 8 hours are not lost. | Test: [NFR03](02-non-functional-requirements.md#NFR03) |
+| US04-AC4 | A driver without a smartphone can have progress recorded by office staff on their behalf. | Demonstration: [FR10](01-functional-requirements.md#FR10) |
+| US04-AC5 | A driver cannot record progress on a stage assigned to someone else. | Test: [NFR01](02-non-functional-requirements.md#NFR01) |
 
 **Assumptions, questions and dependencies:** the 8-hour and 60-second figures are temporary ([A13](../report/05-assumptions.md#A13), [Q11](../report/04-stakeholder-questions.md#Q11)); device ownership is assumed ([A08](../report/05-assumptions.md#A08), [Q14](../report/04-stakeholder-questions.md#Q14)). Recording exceptions such as a passenger not ready is deferred ([DFR12](03-deferred-requirements.md#DFR12)).
 
@@ -126,12 +126,12 @@ Each story takes the priority of its main requirement.
 
 **Acceptance criteria**
 
-| ID | Criterion | Scenarios |
+| ID | Criterion | Verified by |
 |----|-----------|-----------|
-| US05-AC1 | Every cancellation records who cancelled, the reason, the notice given and whether the provider caused it, a reason is required. | `@US05-S1`, `@US05-S3` |
-| US05-AC2 | Each cancellation appears in the request's change history. | `@US05-S2` |
-| US05-AC3 | A provider-caused cancellation is not counted against the passenger, whatever the notice. | `@US05-S4`, `@US05-S5` |
-| US05-AC4 | Cancellations can be listed by reason. | `@US05-S6` |
-| US05-AC5 | One stage can be cancelled without the other. | `@US05-S7` |
+| US05-AC1 | Every cancellation records who cancelled, the reason, the notice given and whether the provider caused it, a reason is required. | Test: [FR11](01-functional-requirements.md#FR11) |
+| US05-AC2 | Each cancellation appears in the request's change history. | Test: [FR03](01-functional-requirements.md#FR03) |
+| US05-AC3 | A provider-caused cancellation is not counted against the passenger, whatever the notice. | Test: [FR11](01-functional-requirements.md#FR11) |
+| US05-AC4 | Cancellations can be listed by reason. | Test: [FR11](01-functional-requirements.md#FR11) |
+| US05-AC5 | One stage can be cancelled without the other. | Test: [FR11](01-functional-requirements.md#FR11) |
 
-**Assumptions, questions and dependencies:** provider responsibility is recorded as reported, not verified ([A06](../report/05-assumptions.md#A06), [Q06](../report/04-stakeholder-questions.md#Q06)). No threshold for a "late" cancellation is assumed ([D13](../decisions/00-decision-log.md#D13)).
+**Assumptions, questions and dependencies:** provider responsibility is recorded as reported, not verified ([A06](../report/05-assumptions.md#A06), [Q06](../report/04-stakeholder-questions.md#Q06)). No threshold for a "late" cancellation is assumed ([D13](../decisions/decision-log.md#D13)).

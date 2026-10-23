@@ -2,7 +2,7 @@
 
 Candidate concept analysis identifies the things the system must know about before any domain model is drawn. Every noun phrase in the scenario was listed in order, section by section, following the noun phrase technique of [Abbott (1983)](../references/01-text-sources.md#abbott) as adapted for conceptual modelling by [Larman (2004)](../references/01-text-sources.md#larman). Synonyms were merged under one preferred term, so that the same word is used throughout the report and each candidate was then classified and given a decision: **keep** it as a concept or actor, **merge** it into another term, **convert** it into an attribute, value or association or **remove** it. **Conceptual classes** have their own identity and attributes and the system records many of them. **Attributes or values** are simple data that describe a class. **Actors** are people or roles that use the system, as modelled in the [use case model](07-use-case-model.md). **Operations or events** are things that happen rather than things that are kept.
 
-The table below shows the candidates that remain in the model. The remaining candidates were excluded as out of scope, deferred, derived from other data, too vague or tied to today's tools rather than the business. They are listed with reasons in the [rejected candidates record](../decisions/09-rejected-candidates.md), so every noun in the scenario is accounted for.
+The table below shows the candidates that remain in the model. The remaining candidates were excluded as out of scope, deferred, derived from other data, too vague or tied to today's tools rather than the business. They are listed with reasons in the [rejected candidates record](../decisions/rejected-candidates.md), so every noun in the scenario is accounted for.
 
 | Candidate (synonyms merged) | Conceptual class | Attribute / value | Actor | Operation / event | Decision | Reason |
 |---|:-:|:-:|:-:|:-:|---|---|
@@ -98,14 +98,14 @@ The glossary fixes one preferred term for each concept, actor and key value and 
 
 ## Modelling Decisions
 
-The main modelling decisions are summarised below, alternatives and consequences are recorded in the [decision log](../decisions/00-decision-log.md#domain-analysis-and-domain-model).
+The main modelling decisions are summarised below, alternatives and consequences are recorded in the [decision log](../decisions/decision-log.md#domain-analysis-and-domain-model).
 
 | Decision | Reason | Record |
 |---|---|---|
-| Driver is both a class and an actor. | The actor is the person recording progress, the class is the stored record of availability and authorisation that FR06 and FR12 need. | [D23](../decisions/00-decision-log.md#D23) |
-| Appointment is separate from Transport request. | The clinic can change the appointment independently ("especially when the clinic changes the appointment"). | [D15](../decisions/00-decision-log.md#D15) |
-| Outward and return are one class, Journey stage. | Both have the same attributes, a direction attribute supports a different driver per stage (FR08). | [D16](../decisions/00-decision-log.md#D16) |
-| Travel needs are attributes, not a class. | Each is a simple value that can vary from one trip to the next. | [D17](../decisions/00-decision-log.md#D17) |
-| Funder report and confirmation are not classes. | Both are produced from stored data and hold nothing of their own. | [D22](../decisions/00-decision-log.md#D22) |
-| Driver and vehicle kinds are types, not subclasses. | They share attributes and differ only in the rules applied, such as authorisation (FR06). | [D19](../decisions/00-decision-log.md#D19) |
+| Driver is both a class and an actor. | The actor is the person recording progress, the class is the stored record of availability and authorisation that FR06 and FR12 need. | [D23](../decisions/decision-log.md#D23) |
+| Appointment is separate from Transport request. | The clinic can change the appointment independently ("especially when the clinic changes the appointment"). | [D15](../decisions/decision-log.md#D15) |
+| Outward and return are one class, Journey stage. | Both have the same attributes, a direction attribute supports a different driver per stage (FR08). | [D16](../decisions/decision-log.md#D16) |
+| Travel needs are attributes, not a class. | Each is a simple value that can vary from one trip to the next. | [D17](../decisions/decision-log.md#D17) |
+| Funder report and confirmation are not classes. | Both are produced from stored data and hold nothing of their own. | [D22](../decisions/decision-log.md#D22) |
+| Driver and vehicle kinds are types, not subclasses. | They share attributes and differ only in the rules applied, such as authorisation (FR06). | [D19](../decisions/decision-log.md#D19) |
 

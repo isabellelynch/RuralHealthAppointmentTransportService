@@ -27,13 +27,13 @@ The report sections are listed in the order they should be read. Each builds on 
 | [Non-functional requirements](requirements/02-non-functional-requirements.md) | NFR01–NFR06 with measurable targets. | 05, 11 |
 | [Deferred requirements](requirements/03-deferred-requirements.md) | Candidates held for a later release, with reasons. | 02, 04 |
 | [Use case model](report/07-use-case-model.md) | System boundary, use case catalogue UC01–UC09 and detailed UC03. | 03, requirements, 08 |
-| [User stories and Gherkin examples](report/08-gherkin-examples.md) | Summary of US01–US05 and the key acceptance examples. | Backlog, features |
-| [User story backlog](requirements/04-user-story-backlog.md) | Authoritative story records with acceptance criteria and scenario IDs. | 08, features |
+| [User stories and Gherkin examples](report/08-gherkin-examples.md) | Summary of US01–US05 and the Gherkin feature for US03. | Backlog, features |
+| [User story backlog](requirements/04-user-story-backlog.md) | Authoritative story records with acceptance criteria and how each is verified. | 08, features |
 | [Candidate concept analysis](report/09-candidate-concept-analysis.md) | Noun-phrase candidates, keep/merge/convert/remove decisions and glossary. | 10, rejected candidates |
 | [Domain model](report/10-domain-model.md) | Conceptual classes, attributes, associations and multiplicities. | 09, diagrams |
 | [Traceability matrix](report/11-traceability-matrix.md) | Chains from problem to requirement, use case, scenario and concept. | All |
-| [Decision log](decisions/00-decision-log.md) | Significant analysis decisions D01–D23 and their rationale. | All |
-| [Rejected candidate concepts](decisions/09-rejected-candidates.md) | Every scenario noun not carried into the model, with the reason. | 09 |
+| [Decision log](decisions/decision-log.md) | Significant analysis decisions D01–D24 and their rationale. | All |
+| [Rejected candidate concepts](decisions/rejected-candidates.md) | Every scenario noun not carried into the model, with the reason. | 09 |
 | [References](references/01-text-sources.md) | Harvard references for all cited sources. | All |
 
 ## Repository structure
@@ -42,7 +42,7 @@ The report sections are listed in the order they should be read. Each builds on 
 README.md
 report/         Numbered dossier sections 01–11
 requirements/   Functional, non-functional and deferred requirements; user story backlog
-features/       Gherkin feature files, one per user story (US01–US05)
+features/       Gherkin feature file for US03 (Separate return driver)
 diagrams/       PlantUML sources (.puml) with exported images (.png)
 decisions/      Decision log and rejected candidate concepts
 references/     Text sources and AI-use records
@@ -57,7 +57,7 @@ Every item has a stable identifier so that it can be linked and traced.
 | P | Problem | 
 | UC | Use case |
 | O | Desired outcome | 
-| US | User story (`US02-AC1` acceptance criterion, `@US02-S1` scenario) |
+| US | User story (`US03-AC1` acceptance criterion, `@US03-S1` scenario) |
 | G | Stakeholder goal | 
 | A | Assumption |
 | FR / NFR | First-release requirement | 
