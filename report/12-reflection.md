@@ -21,3 +21,25 @@ The use of AI is a constant internal battle for me. While I recognize its benefi
 However, ignoring AI entirely would be disadvantageous. Throughout this assignment, I found it most useful as a practical assistant, specifically for formatting raw text into clean Markdown tables, recommending relevant readings to save research time and proofreading my spelling and grammar.
 
 That said, using AI can also be frustrating. Without complete context, it frequently makes critical errors. For example, when asking it to reformat my text, it often altered the wording or added filler that was nonsensical. This required me to carefully review all outputs to ensure my original thoughts and work remained intact.
+
+# AI Interaction Log
+
+Representative interactions only, not every prompt. All analysis decisions are my own. AI output was checked against the scenario and brief before use.
+
+| # | Tool | Purpose | Prompt (summary) | What it suggested | What I did |
+|---|------|---------|------------------|-------------------|------------|
+| 1 | Gemini | Formatting | Can you turn {text} into a formatted md table | It provided formatted tables, but often altered my content and hallucinated context that did not make sense. | Generally discarded the output unless only minor formatting changes were needed, in which case I kept the formatting and re-inserted my original content. |
+| 2 | Claude | Reading suggestions | Can you give me an example of a book chapter or paper where I could get solid information on {topic}? | Suggested relevant, accessible academic sources and papers. | Followed up on its suggestions, which saved significant research time in identifying key materials. |
+| 3 | Claude | Linking | Can you show me how to create links in my Markdown files? | Provided clear syntax instructions for Markdown cross-referencing. | Applied the advice to link requirements, references, and other project files across the repository. |
+| 4 | Claude | Final review against the brief | Asked whether the repository was ready for submission (brief and scenario attached). | Advised restoring an AI interaction log, making the repository private, checking if a single combined dossier was required, and adding a boundary Gherkin scenario. | Restored the log, completed this summary table, and added the missing boundary Gherkin scenario. |
+| 5 | Claude | General Corrections | Can you check that {content} makes sense? | Offered mixed feedback—some suggestions were helpful, while others introduced unnecessary or inaccurate additions. | Selectively adopted valid suggestions (e.g., catching a missing requirement) while rejecting hallucinated or irrelevant edits. |
+
+
+
+## Example of a Suggestion I Checked and Changed or Rejected
+
+Towards the end of the project, I asked Claude to help resolve file paths. It generated a script intended to fix broken internal links resulting from file reorganization. 
+
+When executed, the script unexpectedly began deleting my Gherkin `.feature` files as part of a broader, unprompted restructuring effort. Because I was monitoring the changes and using **Git**, I was able to immediately halt the script and roll back the repository to a clean state. 
+
+This experience underscored the importance of never trusting automated AI scripts blindly, maintaining human oversight and leveraging version control when integrating AI into a software development workflow.

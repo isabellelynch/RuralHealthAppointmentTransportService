@@ -19,7 +19,7 @@ Acceptance criteria are illustrated by Given/When/Then scenarios grouped under `
 
 | Story | Feature file | Scenarios | Covers |
 |-------|--------------|-----------|--------|
-| [US03](#US03) | [US03-return-driver.feature](../features/US03-return-driver.feature) | 5 | Separate driver and status for each stage ([FR08](../requirements/01-functional-requirements.md#FR08)). Changing the return driver leaves the outward stage unchanged. Return left outstanding when the finishing time is uncertain ([A05](05-assumptions.md#A05), [Q04](04-stakeholder-questions.md#Q04)). An unsuitable vehicle is rejected for the return stage ([FR05](../requirements/01-functional-requirements.md#FR05)). Confirmation explains the return arrangement ([FR09](../requirements/01-functional-requirements.md#FR09)). |
+| [US03](#US03) | [US03-return-driver.feature](../features/US03-return-driver.feature) | 5 | Separate driver and status for each stage ([FR08](../requirements/01-functional-requirements.md#FR08)). Changing the return driver leaves the outward stage unchanged. Return left outstanding when the finishing time is uncertain ([A05](05-assumptions.md#A05), [Q04](04-stakeholder-questions.md#Q04)). An unsuitable vehicle is rejected for the return stage. Boundary at exact capacity ([FR05](../requirements/01-functional-requirements.md#FR05)). Confirmation explains the return arrangement ([FR09](../requirements/01-functional-requirements.md#FR09)). |
 
 ### Key acceptance examples
 
@@ -28,5 +28,5 @@ Acceptance criteria are illustrated by Given/When/Then scenarios grouped under `
 | Success | `@US03-S1` Different drivers are assigned to the outward and return stages | The main path: each stage holds its own driver and status ([FR08](../requirements/01-functional-requirements.md#FR08)). |
 | Rule | `@US03-S2` Changing the return driver does not affect the outward stage | A change to one stage must not alter the other, the confusion described in problem [P07](01-scenario-interpretation.md#P07). |
 | Alternative | `@US03-S3` Return stage is saved as outstanding when the finishing time is uncertain | The goal is still reached by a different route when the return cannot yet be planned ([UC03](07-use-case-model.md#UC03) 6a). |
-| Failure | `@US03-S4` Unsuitable vehicle is rejected for the return stage | A car with no wheelchair space cannot be assigned to a wheelchair user's return, and the stage stays outstanding ([FR05](../requirements/01-functional-requirements.md#FR05), [BR05](06-rules-and-uncertainty-register.md#BR05), [UC03](07-use-case-model.md#UC03) 4a). |
+| Failure/Boundary | `@US03-S4` Unsuitable vehicle is rejected for the return stage | A car is accepted when it has exactly the companion seats needed and rejected when it has one too few or no wheelchair space ([FR05](../requirements/01-functional-requirements.md#FR05), [BR05](06-rules-and-uncertainty-register.md#BR05), [UC03](07-use-case-model.md#UC03) 4a). |
 | Rule | `@US03-S5` Confirmation explains that a different driver will collect the passenger | The passenger is told how they will get home ([FR09](../requirements/01-functional-requirements.md#FR09)). |

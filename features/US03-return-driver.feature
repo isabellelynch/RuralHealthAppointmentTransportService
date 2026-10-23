@@ -44,16 +44,21 @@ Feature: Assign a different driver to the return stage
       And the return stage is shown as "Outstanding"
 
   Rule: The return stage is checked for vehicle suitability in the same way as the outward stage
-
-    # Failure: FR05, BR05
+    
+    # Failure and boundary: FR05, BR05. Aoife's own car has 0 wheelchair spaces and 1 companion seat.
     @US03-S4
-    Scenario: Unsuitable vehicle is rejected for the return stage
-      Given Mary needs 1 wheelchair space
+    Scenario Outline: Return-stage vehicle must meet the passenger's seating needs
+      Given Mary needs <wheelchair> wheelchair spaces and <companions> companion seats
       And the return stage is "Outstanding"
-      And Aoife's own car has 0 wheelchair spaces
       When the coordinator assigns Aoife and her own car to the return stage
-      Then the assignment is rejected because the car has no wheelchair space
-      And the return stage is still shown as "Outstanding"
+      Then the assignment is <result>
+      And the return stage is shown as "<status>"
+
+      Examples:
+        | wheelchair | companions | result   | status      |
+        | 1          | 0          | rejected | Outstanding |
+        | 0          | 1          | accepted | Assigned    |
+        | 0          | 2          | rejected | Outstanding |
 
   Rule: The passenger is told how they will get home
 
