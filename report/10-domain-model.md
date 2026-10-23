@@ -21,7 +21,7 @@ All twelve conceptual classes from the [candidate concept analysis](09-candidate
 | Cancellation | The cancellation of one or more journey stages, with its cause. | [FR11](../requirements/01-functional-requirements.md#FR11) |
 | UnavailabilityPeriod | A period when a driver cannot drive, with the reason. | [FR12](../requirements/01-functional-requirements.md#FR12) |
 
-## Task 1: Essential Attributes
+## Essential Attributes
 
 Each candidate attribute was checked: is it a simple value meaningful to stakeholders, is it needed by a requirement, rule or use case and is it really another concept, a foreign key, a collection or an operation?
 
@@ -57,7 +57,7 @@ Each candidate attribute was checked: is it a simple value meaningful to stakeho
 | | isLate | Remove | Derived from noticeGiven, and no "late" threshold is defined in the scenario. |
 | UnavailabilityPeriod | startDate, endDate, reason | Keep | Finds affected journeys ([FR12](../requirements/01-functional-requirements.md#FR12)); reason covers illness, vehicle problems or weather. |
 
-## Task 2: Associations
+## Associations
 
 Seventeen candidate associations were considered. Each was tested: must it be remembered beyond one calculation, do stakeholders query or report on it, does it support a requirement, rule or use case, can it be read as a domain sentence, and does it duplicate another path?
 
@@ -81,7 +81,7 @@ Seventeen candidate associations were considered. Each was tested: must it be re
 | Driver | is authorised for | Vehicle | Authorisation is a yes/no value on Driver ([A04](05-assumptions.md#A04)); may become an association if authorisation is per vehicle ([Q18](04-stakeholder-questions.md#Q18)) | No |
 | Referrer | refers | TransportRequest | Storing referrer details is deferred ([DFR01](../requirements/03-deferred-requirements.md#DFR01)) | No |
 
-## Task 3: Multiplicities
+## Multiplicities
 
 Each end is read separately: the value beside Class A is read from the point of view of one Class B, and the value beside Class B from the point of view of one Class A. Multiplicities express what the rules allow, not typical volumes.
 
@@ -101,7 +101,7 @@ Each end is read separately: the value beside Class A is read from the point of 
 | Cancellation cancels JourneyStage | 0..1 | 1..* | Each stage is cancelled at most once. A cancellation covers one stage or both. | [FR11](../requirements/01-functional-requirements.md#FR11), [UC07](07-use-case-model.md#UC07); a stage may be cancelled on its own ([US05](../requirements/04-user-story-backlog.md#US05)) |
 | Driver is unavailable during UnavailabilityPeriod | 1 | 0..* | Each period belongs to exactly one driver. A driver may have no periods or many. | [FR12](../requirements/01-functional-requirements.md#FR12) |
 
-## Task 4: Transactions and Historical Records
+## Transactions and Historical Records
 
 Important dates, statuses and outcomes must each have a clear home, so that history is kept rather than overwritten.
 
@@ -119,7 +119,7 @@ Important dates, statuses and outcomes must each have a clear home, so that hist
 
 **Decision: could Cancellation be represented as JourneyStage with status CANCELLED?** No. A status alone would lose who cancelled, the reason, the notice given and whether the provider caused it, all of which [FR11](../requirements/01-functional-requirements.md#FR11) requires and [BR09](06-rules-and-uncertainty-register.md#BR09) depends on. One cancellation can also cover both stages, which a status on each stage cannot show. The stage's status is still set to Cancelled so cancelled stages are easy to find, but the information about the cancellation lives in its own concept.
 
-## Task 5: Domain Model
+## Domain Model
 
 ![Domain model: TransportRequest links a Passenger, ContactPerson and Appointment to a Journey made up of one or two JourneyStages. Each stage may be driven by a Driver and use a Vehicle. ContactAttempt, ChangeRecord, Cancellation and UnavailabilityPeriod record history.](../diagrams/domain-model.png)
 
