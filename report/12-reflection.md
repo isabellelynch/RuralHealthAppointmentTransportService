@@ -22,7 +22,7 @@ However, ignoring AI entirely would be disadvantageous. Throughout this assignme
 
 That said, using AI can also be frustrating. Without complete context, it frequently makes critical errors. For example, when asking it to reformat my text, it often altered the wording or added filler that was nonsensical. This required me to carefully review all outputs to ensure my original thoughts and work remained intact.
 
-# AI Interaction Log
+## AI Interaction Log
 
 Representative interactions only, not every prompt. All analysis decisions are my own. AI output was checked against the scenario and brief before use.
 
@@ -40,6 +40,6 @@ Representative interactions only, not every prompt. All analysis decisions are m
 
 Towards the end of the project, I asked Claude to help resolve file paths. It generated a script intended to fix broken internal links resulting from file reorganization. 
 
-When executed, the script unexpectedly began deleting my Gherkin `.feature` files as part of a broader, unprompted restructuring effort. Because I was monitoring the changes and using **Git**, I was able to immediately halt the script and roll back the repository to a clean state. 
+When executed, the script unexpectedly began deleting my Gherkin `.feature` files as part of a broader, unprompted restructuring effort. It deleted my feature files, which I didn’t notice until after committing (09c3e21). I restored them from Git in the next commit (36d64f6).
 
 This experience underscored the importance of never trusting automated AI scripts blindly, maintaining human oversight and leveraging version control when integrating AI into a software development workflow.
